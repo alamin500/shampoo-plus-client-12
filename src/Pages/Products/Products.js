@@ -7,7 +7,7 @@ const Products = (props) => {
    const { home = false } = props;
  const [services, setServices] = useState([]);
  useEffect(() => {
-    fetch("https://secure-anchorage-89979.herokuapp.com/services")
+    fetch("http://localhost:5000/products")
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, []);

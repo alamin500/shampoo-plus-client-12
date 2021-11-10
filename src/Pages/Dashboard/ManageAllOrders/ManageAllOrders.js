@@ -6,13 +6,13 @@ const ManageAllOrders = () => {
   const [control, setConrol] = useState(false);
   const [admin, setAdmin] = useState(false);
   useEffect(() => {
-    fetch(`https://secure-anchorage-89979.herokuapp.com/allBooks`)
+    fetch(`http://localhost:5000/allOrders`)
       .then((res) => res.json())
       .then((data) => setBooks(data));
   }, [control]);
 
   const handleDelete = (id) => {
-    fetch(`https://secure-anchorage-89979.herokuapp.com/deleteBook/${id}`, {
+    fetch(`http://localhost:5000/deleteOrder/${id}`, {
       method: "DELETE",
       headers: { "content-type": "application/json" },
     })

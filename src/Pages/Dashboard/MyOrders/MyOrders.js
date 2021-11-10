@@ -10,13 +10,18 @@ const MyOrders = () => {
   const [books, setBooks] = useState([]);
   const [control, setConrol] = useState(false);
   const [deletes, setDelete] = useState(false);
-  useEffect(() => {
-    fetch(`https://secure-anchorage-89979.herokuapp.com/allBooks`)
+  // useEffect(() => {
+  //   fetch(`http://localhost:5000/allBooks`)
+  //     .then((res) => res.json())
+  //     .then((data) => setBooks(data));
+  // }, [control]);
+   useEffect(() => {
+    fetch(`http://localhost:5000/myOrder/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setBooks(data));
-  }, [control]);
+  }, [user.email, control]);
    const handleDelete = (id) => {
-    fetch(`https://secure-anchorage-89979.herokuapp.com/deleteBook/${id}`, {
+    fetch(`http://localhost:5000/deleteBook/${id}`, {
       method: "DELETE",
       headers: { "content-type": "application/json" },
     })

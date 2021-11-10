@@ -11,10 +11,10 @@ const Purchase = () => {
   const { user } = useFirebase();
   const [services, setServices] = useState([]);
   const [success, setSuccess] = useState(null);
-  const [books, setBooks] = useState([]);
+  // const [books, setBooks] = useState([]);
   // const { setUsername } = useAuth();
   useEffect(() => {
-    fetch("https://secure-anchorage-89979.herokuapp.com/services")
+    fetch("http://localhost:5000/products")
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, [success]);
@@ -24,7 +24,7 @@ const Purchase = () => {
     data._id = `${Math.random()}`;
     setSuccess(true);
     // setUsername(books.length + 1);
-    fetch("https://secure-anchorage-89979.herokuapp.com/myBook", {
+    fetch("http://localhost:5000/order", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),
@@ -32,11 +32,11 @@ const Purchase = () => {
       .then((res) => res.json())
       .then((result) => setSuccess(result));
   };
-  useEffect(() => {
-    fetch(`https://secure-anchorage-89979.herokuapp.com/myBooks/${user?.email}`)
-      .then((res) => res.json())
-      .then((data) => setBooks(data));
-  }, [user.email, success]);
+  // useEffect(() => {
+  //   fetch(`http://localhost:5000/myBooks/${user?.email}`)
+  //     .then((res) => res.json())
+  //     .then((data) => setBooks(data));
+  // }, [user.email, success]);
  return (
   <div>
    <div>
@@ -100,3 +100,4 @@ const Purchase = () => {
 }
 
 export default Purchase
+

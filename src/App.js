@@ -41,15 +41,11 @@ function App() {
            <Route path="/purchase/:purchaseId">
             <Purchase></Purchase>
             </Route>
-            <Route path="/addProducts">
-            <AddProducts></AddProducts>
-          </Route>
+
             <Route path="/dashboard">
               <Dashboard></Dashboard>
             </Route>
-            <Route path="/myOrders">
-              <MyOrders></MyOrders>
-            </Route>
+
             <Route path="/addReview">
               <AddReview></AddReview>
             </Route>
