@@ -16,18 +16,32 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import { Email } from '@mui/icons-material';
 const ManageAllOrders = () => {
-
+const [age, setAge] = React.useState('');
 
 
   const [orderId, setOrderId] = React.useState('');
 
   const handleChange = (event) => {
-    setOrderId(event.target.value);
+    setAge(event.target.value);
+
+    console.log(event, orderId);
+    let status = { status:event.target.value };
+    fetch(`http://localhost:5000/statusUpdate/${orderId}`, {
+      method: "PUT",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(event.target.value),
+    })
+      .then((res) => res.json())
+      .then((result) => console.log(result));
   };
 
-const age = "shipped"
-
+  const handleOrderId = (id) => {
+    setOrderId(id);
+    console.log(id);
+  };
+console.log(orderId)
   const [orders, setOrders] = useState([]);
   const [control, setConrol] = useState(false);
   const [admin, setAdmin] = useState(false);
@@ -36,7 +50,7 @@ const age = "shipped"
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, [control]);
-
+console.log(orders);
   const handleDelete = (id) => {
     fetch(`http://localhost:5000/deleteOrder/${id}`, {
       method: 'DELETE',
@@ -104,6 +118,7 @@ const age = "shipped"
 
 
                       <TableCell align='right'>
+                        <Box sx={{ minWidth: 120 }}>
                               <FormControl fullWidth>
         <InputLabel id="demo-simple-select-label">Age</InputLabel>
         <Select
@@ -112,13 +127,15 @@ const age = "shipped"
           value={age}
           label="Age"
           onChange={handleChange}
+           onClick={() => handleOrderId(order?._id)}
+
         >
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
+          <MenuItem value={10}>Pending</MenuItem>
+          <MenuItem value={20}>Shipped</MenuItem>
+          <MenuItem value={30}>Confirm</MenuItem>
         </Select>
       </FormControl>
-
+   </Box>
                        </TableCell>
 
 
