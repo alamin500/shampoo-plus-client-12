@@ -1,25 +1,51 @@
-import React from 'react'
-import { useEffect } from "react";
-import { useState } from "react";
+import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import {
+  Paper,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+} from '@mui/material';
+
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 const ManageAllOrders = () => {
- const [books, setBooks] = useState([]);
+
+
+
+  const [orderId, setOrderId] = React.useState('');
+
+  const handleChange = (event) => {
+    setOrderId(event.target.value);
+  };
+
+const age = "shipped"
+
+  const [orders, setOrders] = useState([]);
   const [control, setConrol] = useState(false);
   const [admin, setAdmin] = useState(false);
   useEffect(() => {
     fetch(`http://localhost:5000/allOrders`)
       .then((res) => res.json())
-      .then((data) => setBooks(data));
+      .then((data) => setOrders(data));
   }, [control]);
 
   const handleDelete = (id) => {
     fetch(`http://localhost:5000/deleteOrder/${id}`, {
-      method: "DELETE",
-      headers: { "content-type": "application/json" },
+      method: 'DELETE',
+      headers: { 'content-type': 'application/json' },
     })
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount) {
-          alert("Booking Deleted");
+          alert('Booking Deleted');
           setConrol(!control);
         } else {
           setConrol(false);
@@ -27,59 +53,180 @@ const ManageAllOrders = () => {
       });
   };
   const deleteConfirm = (id) => {
-    let clicked = window.confirm("click to delete");
+    let clicked = window.confirm('click to delete');
     if (clicked == true) {
       handleDelete(id);
     } else {
     }
   };
- return (
-  <div>
-      <br />
-      <h1>Manage All Orders :{books.length}</h1>
-      <div style={{ color: "red" }}>
-        <input
-          type="checkbox"
-          id="vehicle1"
-          name="vehicle1"
-          value="Bike"
-          onClick={() => setAdmin(!admin)}
-        />
-        <label for="vehicle1">
-          <h3>Admin</h3>
-        </label>
-      </div>
-      <div className="container mt-5">
-        {books.map((book, index) => (
-          <div className="row align-items-center mx-5">
-            <div className="col-1">
-              <h3>{index + 1}</h3>
-            </div>
-            <div className="booking-border col-12 col-sm-6 col-lg-11 d-flex justify-content-center align-items-center m-0 mb-2">
-              <div
-                style={{ border: "1 px solid #f1f1f1" }}
-                className="d-flex mybook-img justify-content-center align-items-center"
-              >
-                <img src={book.img} alt="" />
-                <h5>{book.name}</h5>
-                <p>{book.description}</p>
-                <div style={{ width: "140px" }}>
-                  {admin && (
-                    <button
-                      className="btn btn-danger "
-                      onClick={() => deleteConfirm(book._id)}
-                    >
-                      Delete
-                    </button>
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
- )
-}
+  return (
+    <div className='container mt-5'>
+      {orders.length === 0 ? (
+        <button variant='primary' disabled>
+          <spinner
+            as='span'
+            animation='grow'
+            size='sm'
+            role='status'
+            aria-hidden='true'
+          />
+          Loading...
+        </button>
+      ) : (
+        <>
+            <h1>Manage All Orders</h1>
+            <h3>You select {orderId}</h3>
+          <TableContainer component={Paper}>
+            <Table sx={{}} aria-label='Appointments table'>
+              <TableHead>
+                <TableRow>
+                  <TableCell>Name</TableCell>
+                  <TableCell align='right'>Time</TableCell>
+                  <TableCell align='right'>Service</TableCell>
+                  <TableCell align='right'>Action</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {orders.map(
+                  (order, index) =>
 
-export default ManageAllOrders
+                      <TableRow
+                        key={order._id}
+                        sx={{
+                          '&:last-child td, &:last-child th': { border: 0 },
+                        }}
+                      >
+                        <TableCell component='th' scope='row'>
+                          {order.name}
+                        </TableCell>
+                        <TableCell align='right'>{order.description}</TableCell>
+                      <TableCell align='right'>{order.price}</TableCell>
+
+
+                      <TableCell align='right'>
+                              <FormControl fullWidth>
+        <InputLabel id="demo-simple-select-label">Age</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={age}
+          label="Age"
+          onChange={handleChange}
+        >
+          <MenuItem value={10}>Ten</MenuItem>
+          <MenuItem value={20}>Twenty</MenuItem>
+          <MenuItem value={30}>Thirty</MenuItem>
+        </Select>
+      </FormControl>
+
+                       </TableCell>
+
+
+
+
+
+                        <TableCell align='right'>
+                          <button
+                            className='btn btn-danger '
+                            onClick={() => deleteConfirm(order._id)}
+                          >
+                            Cancel Order
+                          </button>
+                        </TableCell>
+                      </TableRow>
+
+                )}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </>
+      )}
+    </div>
+  );
+};
+
+export default ManageAllOrders;
+
+
+
+// import React, { useEffect, useState } from "react";
+// import { Table } from "react-bootstrap";
+// import { useForm } from "react-hook-form";
+
+// const MangeOrder = () => {
+//   const [orders, setOrders] = useState([]);
+//   const { register, handleSubmit } = useForm();
+
+//   const [status, setStatus] = useState("");
+//   const [orderId, setOrderId] = useState("");
+
+//   console.log(status);
+//   useEffect(() => {
+//     fetch("http://localhost:5000/allOrders")
+//       .then((res) => res.json())
+//       .then((data) => setOrders(data));
+//   }, []);
+
+//   // const status = "apporved";
+//   const handleOrderId = (id) => {
+//     setOrderId(id);
+//     console.log(id);
+//   };
+
+//   const onSubmit = (data) => {
+//     console.log(data, orderId);
+//     fetch(`http://localhost:5000/statusUpdate/${orderId}`, {
+//       method: "PUT",
+//       headers: { "content-type": "application/json" },
+//       body: JSON.stringify(data),
+//     })
+//       .then((res) => res.json())
+//       .then((result) => console.log(result));
+//   };
+
+//   return (
+//     <div className="container">
+//       <h1>All orders {orders.length}</h1>
+
+//       <Table striped bordered hover>
+//         <thead>
+//           <tr>
+//             <th>#</th>
+//             <th>Service Title</th>
+//             <th>Event description</th>
+//             <th>Image Link</th>
+//             <th>Status</th>
+//             <th>Action</th>
+//           </tr>
+//         </thead>
+//         {orders?.map((pd, index) => (
+//           <tbody>
+//             <tr>
+//               <td>{index}</td>
+//               <td>{pd.name}</td>
+//               <td>{pd.description}</td>
+//               <td>{pd.image}</td>
+//               <td>
+//                 <form onSubmit={handleSubmit(onSubmit)}>
+//                   <select
+//                     onClick={() => handleOrderId(pd?._id)}
+//                     {...register("status")}
+//                   >
+//                     <option value={pd?.status}>{pd?.status}</option>
+//                     <option value="approve">approve</option>
+//                     <option value="done">Done</option>
+//                   </select>
+//                   <input type="submit" />
+//                 </form>
+//               </td>
+//               <button className="btn bg-danger p-2">Delete</button>
+//               <button className="btn bg-success p-2">Update</button>
+//             </tr>
+//           </tbody>
+//         ))}
+//       </Table>
+//     </div>
+//   );
+// };
+
+// export default MangeOrder;
