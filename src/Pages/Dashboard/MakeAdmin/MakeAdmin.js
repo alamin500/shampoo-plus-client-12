@@ -1,7 +1,7 @@
 import React from 'react'
 import { useForm } from "react-hook-form";
 const MakeAdmin = () => {
- const { register, handleSubmit, watch, errors } = useForm();
+ const { register, handleSubmit} = useForm();
 
   const onSubmit = (data) => {
     fetch("http://localhost:5000/makeAdmin", {

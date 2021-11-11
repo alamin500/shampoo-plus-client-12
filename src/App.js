@@ -45,7 +45,9 @@ function App() {
             <Route path="/dashboard">
               <Dashboard></Dashboard>
             </Route>
-
+              <Route path="/myOrders">
+            <MyOrders></MyOrders>
+          </Route>
             <Route path="/addReview">
               <AddReview></AddReview>
             </Route>

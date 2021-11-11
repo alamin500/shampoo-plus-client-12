@@ -89,7 +89,7 @@ const MyOrders = () => {
                         className="btn btn-danger "
                         onClick={() => deleteConfirm(order._id)}
                       >
-                        Delete
+                        Cancel Order
                       </button></TableCell>
                             </TableRow>
               )
