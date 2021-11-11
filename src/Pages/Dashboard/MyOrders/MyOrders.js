@@ -21,7 +21,7 @@ const MyOrders = () => {
       .then((data) => setBooks(data));
   }, [user.email, control]);
    const handleDelete = (id) => {
-    fetch(`http://localhost:5000/deleteBook/${id}`, {
+    fetch(`http://localhost:5000/deleteOrder/${id}`, {
       method: "DELETE",
       headers: { "content-type": "application/json" },
     })

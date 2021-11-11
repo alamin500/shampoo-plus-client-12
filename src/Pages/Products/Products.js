@@ -1,3 +1,5 @@
+import { Container, Grid, Typography } from '@mui/material';
+import { Box } from '@mui/system';
 import React from 'react'
 import { useState } from "react";
 import { useEffect } from "react";
@@ -10,22 +12,25 @@ const Products = (props) => {
     fetch("http://localhost:5000/products")
       .then((res) => res.json())
       .then((data) => setServices(data));
-  }, []);
+ }, []);
+  console.log(services)
  return (
-  <div className="container ">
-      <div className="row g-5">
-        <h1 className="product-h1 pt-5" style={{ textAlign: "center" }}>
-          OUR PACKAGES
-        </h1>
+  <Box sx={{ flexGrow: 1 }}>
+            <Container>
+         <Typography sx={{ fontWeight: 500, m: 2, color: 'success.main' }} variant="h6" component="div">
+                    OUR PRODUCTS
+       </Typography>
+        <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
         {services.map((product, i) =>
           home ? (
             i < 6 && <Product key={product.id} product={product}></Product>
           ) : (
             <Product key={product.id} product={product}></Product>
           )
-        )}
-      </div>
-    </div>
+       )}
+       </Grid>
+            </Container>
+        </Box>
  )
 }
 

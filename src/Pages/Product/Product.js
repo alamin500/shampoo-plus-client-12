@@ -1,42 +1,70 @@
-import React from 'react'
-import { Link } from "react-router-dom";
+
+import * as React from 'react';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import { Button, CardActionArea, Grid } from '@mui/material';
 import useAuth from '../../hooks/useAuth';
-// import useFirebase from "../../hooks/useFirebase";
-// import "./Product.css";
+import { Link } from 'react-router-dom';
 
 const Product = ({ product }) => {
   const { user } = useAuth();
   const { name, description, price, img, _id } = product;
- return (
-    <div className="col-12 col-sm-6 col-lg-4  d-flex justify-content-center align-items-center px-3">
-      <div className="Product-card shadow-sm w-100">
-        <div className="hover-img m-0">
-          <img className="card-img" src={img} alt="" />
-        </div>
-        <div className="p-4">
-          <h5 className="Product-h5">{name}</h5>
-          <hr />
-          <h3 className="price-h3">{price} $</h3>
-          <hr />
-          <p className="describe">{description}</p>
+  return (
+   <Grid item xs={4} sm={4} md={4}>
+    <Card sx={{ maxWidth: 345, height:480 }}>
+      <CardActionArea>
+        <CardMedia
+          component="img"
+          height="320"
+          image={img}
+          alt="green iguana"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            {name}
+            </Typography>
+            <Typography>$ {price}</Typography>
+          <Typography variant="body2" color="text.secondary">
+            {description}
+            </Typography>
 
-          {user?.email ? (
-            <Link to={`/purchase/${_id}`}>
-              <button className="btn m-2 btn-success">
+
+{user?.email ? (
+            <Link to={`/purchase/${_id}`} style={{ textDecoration: 'none', color: '#ff4081' }}>
+              <Button variant='contained' color='error'>
                 Book {name.toLowerCase()}
-              </button>
+              </Button>
             </Link>
           ) : (
-            <Link to={`/login/${_id}`}>
-              <button className="btn m-2 btn-success">
+            <Link to={`/login/${_id}`} >
+              <Button variant='contained' color='error'>
                 BOOK {name.toLowerCase()}
-              </button>
+              </Button>
             </Link>
           )}
-        </div>
-      </div>
-    </div>
+        </CardContent>
+      </CardActionArea>
+      </Card>
+        </Grid>
  )
 }
 
 export default Product
+
+
+
+// {user?.email ? (
+//             <Link to={`/purchase/${_id}`}>
+//               <button className="btn m-2 btn-success">
+//                 Book {name.toLowerCase()}
+//               </button>
+//             </Link>
+//           ) : (
+//             <Link to={`/login/${_id}`}>
+//               <button className="btn m-2 btn-success">
+//                 BOOK {name.toLowerCase()}
+//               </button>
+//             </Link>
+//           )}
