@@ -27,6 +27,7 @@ import ManageAllOrders from '../ManageAllOrders/ManageAllOrders';
 import Pay from '../Pay/Pay';
 import useAuth from '../../../hooks/useAuth';
 import ManageProducts from '../ManageProducts/ManageProducts';
+import MakeAdmin from '../MakeAdmin/MakeAdmin';
 // import AdminRoute from './../../Login/AdminRoute/AdminRoute';
 
 const drawerWidth = 200;
@@ -225,6 +226,9 @@ function Dashboard(props) {
           </Route>
           <Route path={`${path}/pay`}>
             <Pay></Pay>
+          </Route>
+          <Route path={`${path}/makeAdmin`}>
+            <MakeAdmin></MakeAdmin>
           </Route>
           <Route path={`${path}/addProduct`}>
             <AddProducts></AddProducts>
