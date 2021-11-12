@@ -139,16 +139,7 @@ const [role, setRole] = useState(false);
         )}
       </Box>
       {/* } */}
-      <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
+
     </div>
   );
 
@@ -165,7 +156,7 @@ const [role, setRole] = useState(false);
           ml: { sm: `${drawerWidth}px` },
         }}
       >
-        <Toolbar>
+        <Toolbar sx={{ backgroundColor: '#9a0594' }}>
           <IconButton
             color='inherit'
             aria-label='open drawer'

@@ -18,18 +18,16 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { Email } from '@mui/icons-material';
 const ManageAllOrders = () => {
-const [number, setNumber] = React.useState('');
-
+  const [number, setNumber] = React.useState('');
 
   const [orderId, setOrderId] = React.useState('');
 
   const handleChange = (event) => {
     setNumber(event.target.value);
 
-
     fetch(`http://localhost:5000/statusUpdate/${orderId}`, {
-      method: "PUT",
-      headers: { "content-type": "application/json" },
+      method: 'PUT',
+      headers: { 'content-type': 'application/json' },
       body: JSON.stringify(event.target),
     })
       .then((res) => res.json())
@@ -40,7 +38,7 @@ const [number, setNumber] = React.useState('');
     setOrderId(id);
     console.log(id);
   };
-console.log(orderId)
+  console.log(orderId);
   const [orders, setOrders] = useState([]);
   const [control, setConrol] = useState(false);
   const [admin, setAdmin] = useState(false);
@@ -49,7 +47,7 @@ console.log(orderId)
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, [control]);
-console.log(orders);
+  console.log(orders);
   const handleDelete = (id) => {
     fetch(`http://localhost:5000/deleteOrder/${id}`, {
       method: 'DELETE',
@@ -87,8 +85,8 @@ console.log(orders);
         </button>
       ) : (
         <>
-            <h1>Manage All Orders</h1>
-            <h3>You select {orderId}</h3>
+          <h1>Manage All Orders</h1>
+          <h3>You select {orderId}</h3>
           <TableContainer component={Paper}>
             <Table sx={{}} aria-label='Appointments table'>
               <TableHead>
@@ -100,60 +98,51 @@ console.log(orders);
                 </TableRow>
               </TableHead>
               <TableBody>
-                {orders.map(
-                  (order, index) =>
+                {orders.map((order, index) => (
+                  <TableRow
+                    key={order._id}
+                    sx={{
+                      '&:last-child td, &:last-child th': { border: 0 },
+                    }}
+                  >
+                    <TableCell component='th' scope='row'>
+                      {order?.name}
+                    </TableCell>
+                    <TableCell align='right'>{order.description}</TableCell>
+                    <TableCell align='right'>{order.price}</TableCell>
 
-                      <TableRow
-                        key={order._id}
-                        sx={{
-                          '&:last-child td, &:last-child th': { border: 0 },
-                        }}
-                      >
-                        <TableCell component='th' scope='row'>
-                          {order?.name}
-                        </TableCell>
-                        <TableCell align='right'>{order.description}</TableCell>
-                      <TableCell align='right'>{order.price}</TableCell>
+                    <TableCell align='right'>
+                      <Box sx={{ minWidth: 120 }}>
+                        <FormControl fullWidth>
+                          <InputLabel id='demo-simple-select-label'>
+                            Pending
+                          </InputLabel>
 
-
-
-                      <TableCell align='right'>
-                        <Box sx={{ minWidth: 120 }}>
-                              <FormControl fullWidth>
-                            <InputLabel id="demo-simple-select-label">Pending</InputLabel>
-
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={number}
-
-          onChange={handleChange}
-           onClick={() => handleOrderId(order?._id)}
-
-        >
-          <MenuItem value={10}>Pending</MenuItem>
-          <MenuItem value={20}>Shipped</MenuItem>
-          <MenuItem value={30}>Confirm</MenuItem>
-        </Select>
-      </FormControl>
-   </Box>
-                       </TableCell>
-
-
-
-
-
-                        <TableCell align='right'>
-                          <button
-                            className='btn btn-danger '
-                            onClick={() => deleteConfirm(order._id)}
+                          <Select
+                            labelId='demo-simple-select-label'
+                            id='demo-simple-select'
+                            value={order?.status?.value}
+                            onChange={handleChange}
+                            onClick={() => handleOrderId(order?._id)}
                           >
-                            Cancel Order
-                          </button>
-                        </TableCell>
-                      </TableRow>
+                            <MenuItem value={10}>Pending</MenuItem>
+                            <MenuItem value={20}>Shipped</MenuItem>
+                            <MenuItem value={30}>Confirm</MenuItem>
+                          </Select>
+                        </FormControl>
+                      </Box>
+                    </TableCell>
 
-                )}
+                    <TableCell align='right'>
+                      <button
+                        className='btn btn-danger '
+                        onClick={() => deleteConfirm(order._id)}
+                      >
+                        Cancel Order
+                      </button>
+                    </TableCell>
+                  </TableRow>
+                ))}
               </TableBody>
             </Table>
           </TableContainer>
@@ -164,8 +153,6 @@ console.log(orders);
 };
 
 export default ManageAllOrders;
-
-
 
 // import React, { useEffect, useState } from "react";
 // import { Table } from "react-bootstrap";

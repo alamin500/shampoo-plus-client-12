@@ -13,7 +13,7 @@ const Product = ({ product }) => {
   const { name, description, price, img, _id } = product;
   return (
    <Grid item xs={4} sm={4} md={4}>
-    <Card sx={{ maxWidth: 345, height:480 }}>
+    <Card sx={{ maxWidth: 345, height:520 }}>
       <CardActionArea>
         <CardMedia
           component="img"
@@ -33,13 +33,13 @@ const Product = ({ product }) => {
 
 {user?.email ? (
             <Link to={`/purchase/${_id}`} style={{ textDecoration: 'none', color: '#ff4081' }}>
-              <Button variant='contained' color='error'>
+              <Button sx={{backgroundColor:"#da1563"}} variant='contained' color='error'>
                 Book {name.toLowerCase()}
               </Button>
             </Link>
           ) : (
             <Link to={`/login/${_id}`} >
-              <Button variant='contained' color='error'>
+              <Button sx={{backgroundColor:"#da1563"}} variant='contained' color='error'>
                 BOOK {name.toLowerCase()}
               </Button>
             </Link>

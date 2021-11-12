@@ -1,110 +1,198 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import "./Footer.css";
+import { Box } from '@mui/system';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './Footer.css';
+import Grid from '@mui/material/Grid';
+import { Container, Typography,Button } from '@mui/material';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
+import CreditCardIcon from '@mui/icons-material/CreditCard';
+import PaymentsIcon from '@mui/icons-material/Payments';
+import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
+import TextField from '@mui/material/TextField';
 const Footer = () => {
- return (
-  <div className="footer-image">
-      <div className="footer-container">
-        <div className="container">
-          <div className="">
-            <div className="right-footer-container">
+  return (
+    <Box sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }} sx={{ backgroundColor: '#1c1b38' }} className='container'>
+      <Grid container spacing={2} className='footer-image'>
+        <Grid item xs={8}>
+          <br />
+          <Box
+
+          >
+            <div className=' w-50 m-3 text-center footer-us'>
+               <Typography
+                sx={{ color: 'white' }}
+                variant='h4'
+                gutterBottom
+                component='div'
+              >
+                SUBSCRIBE TO OUR NEWSLETTER
+              </Typography>
+               <Typography
+                sx={{ color: 'white' }}
+                variant='body2'
+                gutterBottom
+                component='div'
+
+              >
+                Subscribe to the Shampoo Plus newsletter and stay updated on the latest special offers!
+              </Typography>
+
+            </div>
+
+            <div  className='d-flex m-3 w-50 m-3'>
+              <TextField  sx={{margin:"2px"}} id="filled-basic" label="Email" variant="outlined" />
+               <Button color='error' sx={{margin:"2px",padding:"15px",backgroundColor:"#da1563"}} variant="contained" size="large">
+          SUBSCRIBE
+        </Button>
+            </div>
+          </Box>
+        </Grid>
+        <Grid item xs={4}>
+          <h1>Hello</h1>
+        </Grid>
+      </Grid>
+      <Container>
+        <Grid
+          container
+          spacing={2}
+          sx={{
+            padding: '20px',
+            display: 'flex',
+            alignItems: 'flex-start',
+            justifyContent: 'center',
+          }}
+        >
+          <Grid xs={4} className='col-md-6'>
+            <div className='left-container text-start'>
+
               <br />
-              <div className="d-flex align-items-center justify-content-center">
-                <div className=" w-50 m-3 text-center footer-us">
-                  <p className="m-0 footer-us">KEEP IN TOUCH</p>
-                  <h1>
-                    <strong>Travel with Us</strong>
-                  </h1>
-                </div>
+              <Typography
+                sx={{ color: '#d7165f' }}
+                variant='h4'
+                gutterBottom
+                component='div'
+              >
+                SHAMPOO PLUS
+              </Typography>
 
-                <div className="d-flex m-3 w-50 m-3">
-                  <input
-                    type="text"
-                    className="p-2 m-2 form-control"
-                    placeholder="Email"
-                    aria-label="Username"
-                    aria-describedby="basic-addon1"
-                  />
-                  <button type="button" className=" m-2 btn btn-primary p-2">
-                    SEND
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="row my-5 bg-light p-4">
-            <div className="col-md-6">
-              <div className="left-container text-start">
-                <h1>
-                  <strong style={{ color: "green" }}>Trendy Travel</strong>
-                </h1>
-
-                <p className="">
-                  <small>
-                    227 Marion street New York USA. Street, 4916 Pinewood Drive.
-                    City, Park Ridge. State/Province abbr, IL. State/Province
-                    full, Illinois. Zip Code/Postal code, 60068.
-                  </small>
-                </p>
-                <Link className="footer-link">trendytravel.net</Link>
-                <br />
-                <Link className="footer-link">trendytravel@mail.com</Link>
-                <div className="icons-container d-flex text-center ">
-                  <div className="icon"></div>
-                  <div className="icon"></div>
-                  <div className="icon"></div>
-                  <div className="icon"></div>
-                  <div className="icon"></div>
-                </div>
-                <p className="mt-2">
-                  <small>Colac © . All rights reserved.</small>
-                </p>
-              </div>
-            </div>
-            <div className="col-md-3">
-              <div className="footer-menu-container">
-                <ul>
-                  <h5 className="footer-menu">
-                    <strong>PARTNERS</strong>
-                    <br />
-                    <br />
-                  </h5>
-                  <Link className="footer-link">
-                    <li className="footer-menu">Booking Tours</li>
-                  </Link>
-                  <hr className="line" />
-                  <li className="footer-menu">Rental Hotels</li>
-                  <hr className="line" />
-                  <li className="footer-menu">Hostel World</li>
-                  <hr className="line" />
-                  <li className="footer-menu">Trivago New</li>
-                </ul>
-              </div>
-            </div>
-            <div className="col-md-3">
-              <div className="footer-menu-container">
-                <ul>
-                  <h5 className="footer-menu">
-                    <strong>World Tour</strong>
-                  </h5>
+              <p className=''>
+                <small className='footer-menu'>
+                  227 Marion street New York USA. Street, 4916 Pinewood Drive.{' '}
                   <br />
-                  <Link className="footer-link">
-                    <li className="footer-menu">Machu Picchu London</li>
-                  </Link>
-                  <hr className="line" />
-                  <li className="footer-menu"> National Park, Canada</li>
-                  <hr className="line" />
-                  <li className="footer-menu"> Pitons, St Lucia</li>
-                  <hr className="line" />
-                  <li className="footer-menu"> Pamukkale, Turkey</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
- )
-}
+                  City, Park Ridge. State/Province abbr, IL. <br />{' '}
+                  State/Province full, Illinois. Zip Code/Postal code, 60068.
+                </small>
+              </p>
+              <Link className='footer-link'>trendytravel.net</Link>
+              <br />
+              <Link className='footer-link'>trendytravel@mail.com</Link>
 
-export default Footer
+              <p className='mt-2'>
+                <small className='footer-menu'>Colac © . All rights reserved.</small>
+              </p>
+            </div>
+          </Grid>
+          <Grid xs={2} className='col-md-3'>
+            <div className='footer-menu-container'>
+              <br />
+              <ul>
+                <Link className='footer-link'>
+                  <li className='footer-menu'>Booking Tours</li>
+                </Link>
+                <hr className='line' />
+                <li className='footer-menu'>Rental Hotels</li>
+                <hr className='line' />
+                <li className='footer-menu'>Hostel World</li>
+                <hr className='line' />
+                <li className='footer-menu'>Trivago New</li>
+              </ul>
+            </div>
+          </Grid>
+          <Grid xs={2} className='col-md-3'>
+            <div className='footer-menu-container'>
+              <ul>
+                <br />
+                <Link className='footer-link'>
+                  <li className='footer-menu'>Machu Picchu London</li>
+                </Link>
+                <hr className='line' />
+                <li className='footer-menu'> National Park, Canada</li>
+                <hr className='line' />
+                <li className='footer-menu'> Pitons, St Lucia</li>
+                <hr className='line' />
+                <li className='footer-menu'> Pamukkale, Turkey</li>
+              </ul>
+            </div>
+          </Grid>
+
+          <Grid xs={2}>
+            <Box className='footer-menu-container'>
+              <br />
+              <Typography
+                sx={{ color: '#d7165f' }}
+                variant='h6'
+                gutterBottom
+                component='div'
+              >
+                PAMENT METHOD
+              </Typography>
+               <ul>
+
+                <Box sx={{ color: 'white' }}>
+                  <AccountBalanceIcon />
+                </Box>
+                <Box sx={{ color: 'white' }}>
+                  <CreditCardIcon />
+                </Box>
+                <Box sx={{ color: 'white' }}>
+                  <PaymentsIcon />
+                </Box>
+                <Box sx={{ color: 'white' }}>
+                  <AccountBalanceWalletIcon />
+                </Box>
+              </ul>
+            </Box>
+          </Grid>
+          <Grid xs={2} className='footer-menu-container'>
+            <Box>
+              <ul>
+                <Typography
+                  sx={{ color: '#d7165f' }}
+                  variant='h6'
+                  gutterBottom
+                  component='div'
+                >
+                  FOLLOW US
+                </Typography>
+
+                <Box sx={{ color: 'white' }}>
+                  <FacebookIcon />
+                </Box>
+                <Box sx={{ color: 'white' }}>
+                  <InstagramIcon />
+                </Box>
+                <Box sx={{ color: 'white' }}>
+                  <TwitterIcon />
+                </Box>
+                <Box sx={{ color: 'white' }}>
+                  <LinkedInIcon />
+                </Box>
+              </ul>
+            </Box>
+          </Grid>
+        </Grid>
+      </Container>
+    </Box>
+  );
+};
+
+export default Footer;
+

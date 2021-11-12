@@ -1,6 +1,9 @@
+#root{
+  background-color: #fcf3f7;
+}
 .footer-image {
-  background-image: url("https://images.unsplash.com/photo-1598875791852-8bb153e713f0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1305&q=80");
-  height: 600px;
+  background-image: url("https://i.ibb.co/jhcZ4Pg/hair.jpg");
+  height: 100%;
   width: 100%;
   background-blend-mode: overlay;
   background-repeat: no-repeat;
@@ -20,7 +23,7 @@
 }
 
 .footer-container {
-  color: rgb(48, 31, 31);
+  color: white;
 }
 .footer-container li:hover {
   color: rgb(24, 102, 63);
@@ -37,8 +40,11 @@
 }
 .footer-link {
   text-decoration: none;
-  color: gray;
+  color: white;
 }
 .footer-link:hover {
   color: rgb(84, 161, 123);
+}
+.footer-menu{
+  color: #f7f7f7;
 }

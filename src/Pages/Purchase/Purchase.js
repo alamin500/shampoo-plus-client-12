@@ -5,6 +5,8 @@ import { useParams } from "react-router";
 import useFirebase from "../../hooks/useFirebase";
 
 import useAuth from "../../hooks/useAuth";
+import { Box } from '@mui/system';
+import { Button } from '@mui/material';
 
 const Purchase = () => {
  const { purchaseId } = useParams();
@@ -40,7 +42,7 @@ const Purchase = () => {
  return (
   <div>
    <div>
-      <div className="d-flex container justify-content-center align-items-center">
+      <Box sx={{display:"flex"}} className="d-flex container justify-content-center align-items-center">
         <div>
           <h1>Contract Information</h1>
           <h5>Name: {user.displayName}</h5>
@@ -50,7 +52,7 @@ const Purchase = () => {
           <h1>Product Information</h1>
           <div className="d-flex justify-content-center align-items-center">
             <div>
-              <img src={value?.img} className="book-img" alt="" />
+              <img height="80px" src={value?.img} className="book-img" alt="" />
             </div>
             <div>
               <h4>{value?.name}</h4>
@@ -58,7 +60,7 @@ const Purchase = () => {
             </div>
           </div>
         </div>
-      </div>
+      </Box>
       {success ? (
         <div style={{ display: "flex", justifyContent: "center" }}>
           {" "}
@@ -89,10 +91,10 @@ const Purchase = () => {
           </h3>
         </div>
       ) : (
-        <button className="btn btn-success" onClick={() => myBook(value)}>
+        <Button sx={{backgroundColor:'#da1563'}}  variant='contained' color='error' onClick={() => myBook(value)}>
           {" "}
           Place Order {value?.name.toLowerCase()}
-        </button>
+        </Button>
       )}
     </div>
   </div>
