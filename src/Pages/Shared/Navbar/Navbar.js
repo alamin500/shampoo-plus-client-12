@@ -32,9 +32,7 @@ const Navbar = () => {
       </Link>
 
 
-      <Link to='/myOrders' style={{ textDecoration: 'none', color: 'white' }}>
-            <Button color='inherit'>My Orders</Button>
-          </Link>
+
       <Link to='/reviews' style={{ textDecoration: 'none', color: 'white' }}>
             <Button color='inherit'>Reviews</Button>
           </Link>
@@ -43,15 +41,20 @@ const Navbar = () => {
 
           {user?.email ? (
             <Box>
+              <Link to='/myOrders' style={{ textDecoration: 'none', color: 'white' }}>
+            <Button color='inherit'>My Orders</Button>
+          </Link>
               <NavLink
                 style={{ textDecoration: 'none', color: 'white' }}
                 to='/dashboard'
               >
                 <Button variant="contained" color="error">Dashboard</Button>
-              </NavLink>
+              </NavLink >
+
               <Button onClick={logout} color='inherit'>
                 Logout
               </Button>
+
             </Box>
           ) : (
             <NavLink

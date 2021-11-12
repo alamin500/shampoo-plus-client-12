@@ -18,20 +18,19 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { Email } from '@mui/icons-material';
 const ManageAllOrders = () => {
-const [age, setAge] = React.useState('');
+const [number, setNumber] = React.useState('');
 
 
   const [orderId, setOrderId] = React.useState('');
 
   const handleChange = (event) => {
-    setAge(event.target.value);
+    setNumber(event.target.value);
 
-    console.log(event, orderId);
-    let status = { status:event.target.value };
+
     fetch(`http://localhost:5000/statusUpdate/${orderId}`, {
       method: "PUT",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify(event.target.value),
+      body: JSON.stringify(event.target),
     })
       .then((res) => res.json())
       .then((result) => console.log(result));
@@ -95,8 +94,8 @@ console.log(orders);
               <TableHead>
                 <TableRow>
                   <TableCell>Name</TableCell>
-                  <TableCell align='right'>Time</TableCell>
-                  <TableCell align='right'>Service</TableCell>
+                  <TableCell align='right'>Description</TableCell>
+                  <TableCell align='right'>Price</TableCell>
                   <TableCell align='right'>Action</TableCell>
                 </TableRow>
               </TableHead>
@@ -111,21 +110,23 @@ console.log(orders);
                         }}
                       >
                         <TableCell component='th' scope='row'>
-                          {order.name}
+                          {order?.name}
                         </TableCell>
                         <TableCell align='right'>{order.description}</TableCell>
                       <TableCell align='right'>{order.price}</TableCell>
 
 
+
                       <TableCell align='right'>
                         <Box sx={{ minWidth: 120 }}>
                               <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">Age</InputLabel>
+                            <InputLabel id="demo-simple-select-label">Pending</InputLabel>
+
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={age}
-          label="Age"
+          value={number}
+
           onChange={handleChange}
            onClick={() => handleOrderId(order?._id)}
 

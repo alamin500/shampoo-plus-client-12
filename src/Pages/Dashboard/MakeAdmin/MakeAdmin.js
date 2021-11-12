@@ -1,9 +1,13 @@
 import React from 'react'
 import { useForm } from "react-hook-form";
+import useAuth from '../../../hooks/useAuth';
 const MakeAdmin = () => {
+
  const { register, handleSubmit} = useForm();
 
-  const onSubmit = (data) => {
+ const onSubmit = (data) => {
+   // const user ={email}
+  console.log(data)
     fetch("http://localhost:5000/makeAdmin", {
       method: "PUT",
       headers: { "content-type": "application/json" },

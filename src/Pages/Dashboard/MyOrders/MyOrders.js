@@ -65,8 +65,8 @@ const MyOrders = () => {
                     <TableHead>
                         <TableRow>
                             <TableCell>Name</TableCell>
-                            <TableCell align="right">Time</TableCell>
-                            <TableCell align="right">Service</TableCell>
+                            <TableCell align="right">Description</TableCell>
+                            <TableCell align="right">Price</TableCell>
                             <TableCell align="right">Action</TableCell>
                         </TableRow>
                     </TableHead>

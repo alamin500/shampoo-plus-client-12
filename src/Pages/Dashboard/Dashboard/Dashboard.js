@@ -1,4 +1,4 @@
-import * as React from 'react';
+import  React,{useState,useEffect} from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -34,7 +34,13 @@ import AddReview from '../AddReview/AddReview';
 const drawerWidth = 200;
 
 function Dashboard(props) {
-  const { user, logout } = useAuth();
+  const { user, logout, admin } = useAuth();
+const [role, setRole] = useState(false);
+  // let admins =
+
+
+  console.log(role)
+
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   let { path, url } = useRouteMatch();
@@ -50,16 +56,16 @@ function Dashboard(props) {
       <Link to='/products' style={{ textDecoration: 'none', color: '#ff4081' }}>
         <Button color='inherit'>Products</Button>
       </Link>
-      <hr />
+      {/* <hr />
       <Link to={`${url}`}>
         <Button color='inherit'>Dashboard</Button>
-      </Link>
+      </Link> */}
 
       <Box>
         {user.email &&
           <Box>
             <Link
-              to={`${url}/myOrders`}
+              to={`${url}`}
               style={{ textDecoration: 'none', color: '#ff4081' }}
             >
               <Button color='inherit'>My Orders</Button>
@@ -81,7 +87,7 @@ function Dashboard(props) {
         }
         <br />
         <hr />
-        <Link to={`${url}/makeAdmin`} style={{ textDecoration: 'none', color: '#ff4081' }}>
+          {admin && admin.length > 0  && admin.map((data)=>data.role &&  <>      <Link to={`${url}/makeAdmin`} style={{ textDecoration: 'none', color: '#ff4081' }}>
           <Button color='inherit'>Make Admin</Button>
         </Link>
         <Link
@@ -101,7 +107,8 @@ function Dashboard(props) {
           style={{ textDecoration: 'none', color: '#ff4081' }}
         >
           <Button color='inherit'>Add Product</Button>
-        </Link>
+        </Link> </>)}
+
         {user?.email ? (
                   <Box>
                       <Link
@@ -109,8 +116,10 @@ function Dashboard(props) {
               textDecoration: 'none',
               color: '#ff4081',
               backgroundColor: 'red',
-            }}
-          >
+              }}
+              to="/"
+            >
+
             <Button onClick={logout} variant='contained' color='error'>
               Logout
             </Button>
@@ -220,11 +229,11 @@ function Dashboard(props) {
 
         <Switch>
           <Route exact path={path}>
-            {/* <DashboardHome></DashboardHome> */}
-          </Route>
-          <Route path={`${path}/myOrders`}>
             <MyOrders></MyOrders>
           </Route>
+          {/* <Route path={`${path}/myOrders`}>
+            <MyOrders></MyOrders>
+          </Route> */}
           <Route path={`${path}/addReview`}>
                 <AddReview></AddReview>
             </Route>

@@ -1,0 +1,44 @@
+.footer-image {
+  background-image: url("https://images.unsplash.com/photo-1598875791852-8bb153e713f0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1305&q=80");
+  height: 600px;
+  width: 100%;
+  background-blend-mode: overlay;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 30px;
+}
+.footer-us h1 {
+  color: white;
+}
+.footer-us {
+  color: white;
+}
+.footer-container h2 {
+  color: white;
+}
+
+.footer-container {
+  color: rgb(48, 31, 31);
+}
+.footer-container li:hover {
+  color: rgb(24, 102, 63);
+}
+.line {
+  margin: 10px;
+  width: 90%;
+}
+.footer-container li {
+  list-style-type: none;
+}
+.footer-container ul {
+  padding: 0;
+}
+.footer-link {
+  text-decoration: none;
+  color: gray;
+}
+.footer-link:hover {
+  color: rgb(84, 161, 123);
+}

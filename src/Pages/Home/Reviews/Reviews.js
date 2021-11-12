@@ -1,4 +1,5 @@
 import { ViewAgenda } from '@mui/icons-material';
+import Rating from '@mui/material/Rating';
 import {
   Card,
   CardActions,
@@ -19,15 +20,12 @@ const Reviews = () => {
       .then((data) => setReviews(data));
   }, []);
   console.log(reviews);
+  const value = 3;
   return (
     <Container>
-      <Grid
-        container
-        spacing={{ xs: 2, md: 3 }}
-
-      >
+      <Grid container spacing={{ xs: 2, md: 3 }}>
         {reviews.map((review) => (
-          <Grid item xs={4} sm={4} md={4}>
+          <Grid item xs={12} sm={6} md={4}>
             <Card sx={{ minWidth: 275 }}>
               <CardContent>
                 <Typography
@@ -35,17 +33,25 @@ const Reviews = () => {
                   color='text.secondary'
                   gutterBottom
                 >
-                  Word of the Day
+                  {review.email}
                 </Typography>
 
-                <Typography sx={{ mb: 1.5 }} color='text.secondary'>
-                  adjective
-                </Typography>
-                <Typography variant='body2'>
-                  well meaning and kindly.
-                  <br />
-                  {'"a benevolent smile"'}
-                </Typography>
+                <Typography
+                  sx={{ mb: 1.5 }}
+                  color='text.secondary'
+                ></Typography>
+                <Box
+                  sx={{
+                    '& > legend': { mt: 2 },
+                  }}
+                >
+
+                  <Typography component='legend'>Rating</Typography>
+                  <Rating name='read-only' value={review.number} readOnly />
+
+                </Box>
+
+                <Typography variant='body2'>{review.comments}</Typography>
               </CardContent>
             </Card>
           </Grid>

@@ -87,9 +87,9 @@ const useFirebase = () => {
     }, [auth])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/${user.email}`)
+        fetch(`http://localhost:5000/admin/${user.email}`)
             .then(res => res.json())
-            .then(data => setAdmin(data.admin))
+            .then(data => setAdmin(data))
     }, [user.email])
 
     const logout = () => {
