@@ -51,8 +51,8 @@ body{
 .footer-menu{
   color: #f7f7f7;
 }
-@media screen and (min-width: 480px) {
-  .footer-image{
-
+@media screen and (max-width: 480px) {
+  .subscribe-image{
+display: none;
   }
 }

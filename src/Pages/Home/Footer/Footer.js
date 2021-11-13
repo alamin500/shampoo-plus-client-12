@@ -19,11 +19,11 @@ const Footer = () => {
   return (
     <Box
       sx={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
+        marginTop:"20px",
+        overflow: 'hidden',
+        backgroundColor: '#1c1b38'
       }}
-      sx={{ backgroundColor: '#1c1b38' }}
+
       className='container'
     >
       <Grid container spacing={2} className='footer-image'>
@@ -74,9 +74,9 @@ const Footer = () => {
             </Box>
           </Box>
         </Grid>
-        <Grid xs={12} item sm={5} md={5}>
+        <Grid xs={6} item sm={5} md={5}>
 
-          <img height="250px" className="footer-image" src='https://i.ibb.co/gzwbZgr/subscribe-newsletter-with-people-working-together-free-vector.jpg' alt="" />
+          <img height="250px" className="subscribe-image" src='https://i.ibb.co/gzwbZgr/subscribe-newsletter-with-people-working-together-free-vector.jpg' alt="" />
         </Grid>
       </Grid>
       <Container>

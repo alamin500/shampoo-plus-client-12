@@ -136,12 +136,12 @@ export default function Navigation() {
             </IconButton>
             <Typography
               className={navLogo}
-              variant='h6'
+              variant='h4'
               component='div'
-              sx={{ flexGrow: 1 }}
+              sx={{ flexGrow: 1, textAlign:'left' }}
             >
-              <Link style={{ textDecoration: 'none', color: 'white' }} to='/'>
-                Home
+              <Link style={{ textDecoration: 'none', color: 'white', }} to='/'>
+                Shampoo Plus
               </Link>
             </Typography>
 

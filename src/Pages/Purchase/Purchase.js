@@ -144,6 +144,7 @@ const Purchase = () => {
             </Box>
           </Grid>
         </Grid>
+        <br />
         {success ? (
           <div style={{ display: 'flex', justifyContent: 'center' }}>
             {' '}

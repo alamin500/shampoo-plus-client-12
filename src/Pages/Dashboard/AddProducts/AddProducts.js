@@ -1,3 +1,4 @@
+import { TextField } from '@mui/material';
 import React, { useState } from 'react'
 import { useForm } from "react-hook-form";
 import useAuth from '../../../hooks/useAuth';
@@ -20,34 +21,44 @@ const AddProducts = () => {
   };
  return (
   <div>
-      <h1 className="m-3">Add New Package</h1>
+      <h1 className="m-3">Add New Product</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <input
+       <TextField
+       sx={{ width: '30%', m: 1 }}
           {...register("name", { required: true })}
           placeholder="Name"
-          className="p-2 m-2 w-25"
+         className="p-2 m-2 w-25"
+         id="outlined-basic" variant="outlined"
         />
-        <br />
-        <input
+       <br />
+
+       <TextField
+       sx={{ width: '30%', m: 1 }}
           {...register("description")}
           placeholder="Description"
-          className="p-2 m-2 w-25"
+         className="p-2 m-2 w-25"
+         id="outlined-basic" variant="outlined"
         />
         <br />
-        <input
+       <TextField
+         sx={{ width: '30%', m: 1 }}
           type="price"
           {...register("price")}
           placeholder="Price"
-          className="p-2 m-2 w-25"
+         className="p-2 m-2 w-25"
+         id="outlined-basic" variant="outlined"
         />
         <br />
-        <input
+       <TextField
+       sx={{ width: '30%', m: 1 }}
           {...register("img")}
           placeholder="Image"
-          className="p-2 m-2 w-25"
+         className="p-2 m-2 w-25"
+         id="outlined-basic" variant="outlined"
         />
         <br />
-        <input type="submit" className="p-2 m-2 w-25" />
+       <TextField
+         sx={{ width: '30%', m: 1 }} type="submit" className="p-2 m-2 w-25" id="outlined-basic" variant="outlined" />
       </form>
     </div>
  )

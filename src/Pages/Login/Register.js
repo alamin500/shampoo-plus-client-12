@@ -34,41 +34,41 @@ import useAuth from '../../hooks/useAuth';
                     {!isLoading && <form onSubmit={handleLoginSubmit}>
                         <TextField
                             sx={{ width: '75%', m: 1 }}
-                            id="standard-basic"
+                            id="outlined-basic"
                             label="Your Name"
                             name="name"
                             onBlur={handleOnBlur}
-                            variant="standard" />
+                            variant="outlined" />
                         <TextField
                             sx={{ width: '75%', m: 1 }}
-                            id="standard-basic"
+                            id="outlined-basic"
                             label="Your Email"
                             name="email"
                             type="email"
                             onBlur={handleOnBlur}
-                            variant="standard" />
+                            variant="outlined" />
                         <TextField
                             sx={{ width: '75%', m: 1 }}
-                            id="standard-basic"
+                            id="outlined-basic"
                             label="Your Password"
                             type="password"
                             name="password"
                             onBlur={handleOnBlur}
-                            variant="standard" />
+                            variant="outlined" />
                         <TextField
                             sx={{ width: '75%', m: 1 }}
-                            id="standard-basic"
+                            id="outlined-basic"
                             label="ReType Your Password"
                             type="password"
                             name="password2"
                             onBlur={handleOnBlur}
-                            variant="standard" />
+                            variant="outlined" />
 
-                        <Button sx={{ width: '75%', m: 1 }} type="submit" variant="contained">Register</Button>
+                        <Button color='error' sx={{ width: '75%', m: 1,backgroundColor: '#da1563' }} type="submit" variant="contained">Register</Button>
                         <NavLink
                             style={{ textDecoration: 'none' }}
                             to="/login">
-                            <Button variant="text">Already Registered? Please Login</Button>
+                            <Button variant="text" sx={{color:'#da1563'}}>Already Registered? Please Login</Button>
                         </NavLink>
                     </form>}
                     {isLoading && <CircularProgress />}

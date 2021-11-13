@@ -1,4 +1,3 @@
-
 import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -12,48 +11,57 @@ const Product = ({ product }) => {
   const { user } = useAuth();
   const { name, description, price, img, _id } = product;
   return (
-   <Grid item xs={4} sm={4} md={4}>
-    <Card sx={{ maxWidth: 345, height:520 }}>
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          height="320"
-          image={img}
-          alt="green iguana"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {name}
+    <Grid item xs={4} sm={4} md={4}>
+      <Card sx={{ maxWidth: 345, height: 520 }}>
+        <CardActionArea sx={{paddingTop: "10px"}}>
+          <CardMedia
+            component='img'
+            height='305'
+            image={img}
+            alt='green iguana'
+          />
+          <CardContent>
+            <Typography gutterBottom variant='h5' component='div'>
+              {name}
             </Typography>
-            <Typography>$ {price}</Typography>
-          <Typography variant="body2" color="text.secondary">
-            {description}
+            <Typography sx={{fontWeight:"600"}}>$ {price}</Typography>
+            <Typography sx={{marginBottom:'10px'}} variant='body2' color='text.secondary'>
+              {description}
             </Typography>
 
-
-{user?.email ? (
-            <Link to={`/purchase/${_id}`} style={{ textDecoration: 'none', color: '#ff4081' }}>
-              <Button sx={{backgroundColor:"#da1563"}} variant='contained' color='error'>
-                Book {name.toLowerCase()}
-              </Button>
-            </Link>
-          ) : (
-            <Link to={`/login/${_id}`} >
-              <Button sx={{backgroundColor:"#da1563"}} variant='contained' color='error'>
-                BOOK {name.toLowerCase()}
-              </Button>
-            </Link>
-          )}
-        </CardContent>
-      </CardActionArea>
+            {user?.email ? (
+              <Link to={`/purchase/${_id}`} style={{ textDecoration: 'none' }}>
+                <Button
+                  variant='contained'
+                  color='error'
+                  sx={{
+                    backgroundColor: '#da1563', marginTop:'5px'
+                  }}
+                >
+                  Buy Now
+                </Button>
+              </Link>
+            ) : (
+              <Link to={`/login/${_id}`} style={{ textDecoration: 'none' }}>
+                <Button
+                  variant='contained'
+                  color='error'
+                  sx={{
+                    backgroundColor: '#da1563',
+                  }}
+                >
+                  Buy Now
+                </Button>
+              </Link>
+            )}
+          </CardContent>
+        </CardActionArea>
       </Card>
-        </Grid>
- )
-}
+    </Grid>
+  );
+};
 
-export default Product
-
-
+export default Product;
 
 // {user?.email ? (
 //             <Link to={`/purchase/${_id}`}>

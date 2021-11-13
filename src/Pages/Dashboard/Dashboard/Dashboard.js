@@ -51,9 +51,11 @@ const [role, setRole] = useState(false);
 
   const drawer = (
     <div>
-      <Toolbar />
+      <Toolbar> <Typography sx={{fontWeight:700, color:'#da1563'}} variant='h5' noWrap component='div'>
+         Dashboard
+          </Typography> </Toolbar>
       <Divider />
-      <Link to='/products' style={{ textDecoration: 'none', color: '#ff4081' }}>
+      <Link to='/products' style={{ textDecoration: 'none', color: '#da1563' }}>
         <Button color='inherit'>Products</Button>
       </Link>
       {/* <hr />
@@ -66,45 +68,45 @@ const [role, setRole] = useState(false);
           <Box>
             <Link
               to={`${url}`}
-              style={{ textDecoration: 'none', color: '#ff4081' }}
+              style={{ textDecoration: 'none', color: '#da1563' }}
             >
               <Button color='inherit'>My Orders</Button>
             </Link>
             <Link
               to={`${url}/addReview`}
-              style={{ textDecoration: 'none', color: '#ff4081' }}
+              style={{ textDecoration: 'none', color: '#da1563' }}
             >
               <Button color='inherit'>Add Review</Button>
             </Link>
             <br />
             <Link
               to={`${url}/pay`}
-              style={{ textDecoration: 'none', color: '#ff4081' }}
+              style={{ textDecoration: 'none', color: '#da1563' }}
             >
               <Button color='inherit'>Pay</Button>
             </Link>
           </Box>
         }
-        <br />
+
         <hr />
-          {admin && admin.length > 0  && admin.map((data)=>data.role &&  <>      <Link to={`${url}/makeAdmin`} style={{ textDecoration: 'none', color: '#ff4081' }}>
+          {admin && admin.length > 0  && admin.map((data)=>data.role &&  <>      <Link to={`${url}/makeAdmin`} style={{ textDecoration: 'none', color: '#da1563' }}>
           <Button color='inherit'>Make Admin</Button>
         </Link>
         <Link
           to={`${url}/manageAllOrders`}
-          style={{ textDecoration: 'none', color: '#ff4081' }}
+          style={{ textDecoration: 'none', color: '#da1563' }}
         >
           <Button color='inherit'>Manage Orders</Button>
         </Link>
         <Link
           to={`${url}/manageProducts`}
-          style={{ textDecoration: 'none', color: '#ff4081' }}
+          style={{ textDecoration: 'none', color: '#da1563' }}
         >
           <Button color='inherit'>Manage Products</Button>
         </Link>
         <Link
           to={`${url}/addProduct`}
-          style={{ textDecoration: 'none', color: '#ff4081' }}
+          style={{ textDecoration: 'none', color: '#da1563' }}
         >
           <Button color='inherit'>Add Product</Button>
         </Link> </>)}
@@ -114,7 +116,7 @@ const [role, setRole] = useState(false);
                       <Link
             style={{
               textDecoration: 'none',
-              color: '#ff4081',
+              color: '#da1563',
               backgroundColor: 'red',
               }}
               to="/"
@@ -129,7 +131,7 @@ const [role, setRole] = useState(false);
           <Link
             style={{
               textDecoration: 'none',
-              color: '#ff4081',
+              color: '#da1563',
               backgroundColor: 'red',
             }}
             to='/login'
@@ -167,7 +169,7 @@ const [role, setRole] = useState(false);
             <MenuIcon />
           </IconButton>
           <Typography variant='h6' noWrap component='div'>
-            Dashboard
+            <Link style={{ textDecoration: 'none', color: 'white' }} to="/">Home</Link>
           </Typography>
         </Toolbar>
       </AppBar>
