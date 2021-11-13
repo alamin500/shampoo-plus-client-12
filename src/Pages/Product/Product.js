@@ -13,7 +13,7 @@ const Product = ({ product }) => {
   return (
     <Grid item xs={4} sm={4} md={4}>
       <Card sx={{ maxWidth: 345, height: 520 }}>
-        <CardActionArea sx={{paddingTop: "10px"}}>
+        <CardActionArea sx={{ paddingTop: '10px' }}>
           <CardMedia
             component='img'
             height='305'
@@ -24,18 +24,22 @@ const Product = ({ product }) => {
             <Typography gutterBottom variant='h5' component='div'>
               {name}
             </Typography>
-            <Typography sx={{fontWeight:"600"}}>$ {price}</Typography>
-            <Typography sx={{marginBottom:'10px'}} variant='body2' color='text.secondary'>
+            <Typography sx={{ fontWeight: '600' }}>$ {price}</Typography>
+            <Typography
+              sx={{ marginBottom: '10px' }}
+              variant='body2'
+              color='text.secondary'
+            >
               {description}
             </Typography>
-
             {user?.email ? (
               <Link to={`/purchase/${_id}`} style={{ textDecoration: 'none' }}>
                 <Button
                   variant='contained'
                   color='error'
                   sx={{
-                    backgroundColor: '#da1563', marginTop:'5px'
+                    backgroundColor: '#da1563',
+                    marginTop: '5px',
                   }}
                 >
                   Buy Now
@@ -62,17 +66,3 @@ const Product = ({ product }) => {
 };
 
 export default Product;
-
-// {user?.email ? (
-//             <Link to={`/purchase/${_id}`}>
-//               <button className="btn m-2 btn-success">
-//                 Book {name.toLowerCase()}
-//               </button>
-//             </Link>
-//           ) : (
-//             <Link to={`/login/${_id}`}>
-//               <button className="btn m-2 btn-success">
-//                 BOOK {name.toLowerCase()}
-//               </button>
-//             </Link>
-//           )}

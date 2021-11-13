@@ -144,10 +144,10 @@ const Footer = () => {
                 <br />
                 <br />
                 <Link className='footer-link'>
-                  <li className='footer-menu'>Machu Picchu London</li>
+                  <li className='footer-menu'>Machu Picchu</li>
                 </Link>
                 <hr className='line' />
-                <li className='footer-menu'> National Park, Canada</li>
+                <li className='footer-menu'> National Park</li>
                 <hr className='line' />
                 <li className='footer-menu'> Pitons, St Lucia</li>
                 <hr className='line' />
@@ -187,7 +187,7 @@ const Footer = () => {
             <Box>
               <ul>
                 <Typography
-                  sx={{ color: '#d7165f' }}
+                  sx={{ color: '#d7165f',marginTop: '25px' }}
                   variant='h6'
                   gutterBottom
                   component='div'

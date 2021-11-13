@@ -9,9 +9,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { makeStyles } from '@mui/styles';
 import { Link, NavLink } from 'react-router-dom';
 import { useTheme } from '@mui/material';
-
 import Drawer from '@mui/material/Drawer';
-
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
@@ -52,52 +50,36 @@ export default function Navigation() {
   const { navItem, navIcon, navItemContainer, navLogo, mobileNavItem } =
     useStyle();
   const [state, setState] = React.useState(false);
-
-  // const toggleDrawer = (anchor, open) => (event) => {
-  //   if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-  //     return;
-  //   }
-
-  //   setState({ ...state, [anchor]: open });
-  // };
-
   const list = (
-    <Box
-      sx={{ width: 250 }}
-      role='presentation'
-      // onClick={toggleDrawer(anchor, false)}
-      // onKeyDown={toggleDrawer(anchor, false)}
-    >
+    <Box sx={{ width: 250 }} role='presentation'>
       <List>
-         {user?.email ? (
-                <Box>
-
-                  <NavLink
-                    style={{ textDecoration: 'none', color: 'white' }}
-                    to='/dashboard'
-                  >
-                    <Button
-                      variant='contained'
-                      sx={{ backgroundColor: '#da1563' }}
-                      color='error'
-                    >
-                      Dashboard
-                    </Button>
-                  </NavLink>
-                  <span>{user.displayName}</span>
-                  <Button onClick={logout} color='inherit'>
-                    Logout
-                  </Button>
-                </Box>
-              ) : (
-                <NavLink
-                  style={{ textDecoration: 'none', color: 'white' }}
-                  to='/login'
-                >
-                  <Button color='inherit'>Login</Button>
-                </NavLink>
-              )}
-
+        {user?.email ? (
+          <Box>
+            <NavLink
+              style={{ textDecoration: 'none', color: 'white' }}
+              to='/dashboard'
+            >
+              <Button
+                variant='contained'
+                sx={{ backgroundColor: '#da1563' }}
+                color='error'
+              >
+                Dashboard
+              </Button>
+            </NavLink>
+            <span>{user.displayName}</span>
+            <Button onClick={logout} color='inherit'>
+              Logout
+            </Button>
+          </Box>
+        ) : (
+          <NavLink
+            style={{ textDecoration: 'none', color: 'white' }}
+            to='/login'
+          >
+            <Button color='inherit'>Login</Button>
+          </NavLink>
+        )}
         <ListItem button>
           <ListItemText>
             <Link className={mobileNavItem} to='/products'>
@@ -106,7 +88,6 @@ export default function Navigation() {
           </ListItemText>
         </ListItem>
         <Divider />
-
         <ListItem button>
           <ListItemText>
             <Link className={mobileNavItem} to='reviews'>
@@ -138,15 +119,13 @@ export default function Navigation() {
               className={navLogo}
               variant='h4'
               component='div'
-              sx={{ flexGrow: 1, textAlign:'left' }}
+              sx={{ flexGrow: 1, textAlign: 'left' }}
             >
-              <Link style={{ textDecoration: 'none', color: 'white', }} to='/'>
+              <Link style={{ textDecoration: 'none', color: 'white' }} to='/'>
                 Shampoo Plus
               </Link>
             </Typography>
-
-       <Box sx={{display:'flex'}} className={navItemContainer}>
-
+            <Box sx={{ display: 'flex' }} className={navItemContainer}>
               <Link
                 to='/products'
                 style={{ textDecoration: 'none', color: 'white' }}
@@ -190,7 +169,6 @@ export default function Navigation() {
                   <Button color='inherit'>Login</Button>
                 </NavLink>
               )}
-
             </Box>
           </Toolbar>
         </AppBar>

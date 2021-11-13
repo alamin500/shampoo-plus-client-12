@@ -1,0 +1,11 @@
+.register-image {
+  background-image: url("https://i.ibb.co/cTLRXHS/Beautiful-Hair-Beauty-woman-with-luxurious-long-hair-as-background-Beauty-Model-girl-with-Healthy-bl.jpg");
+  height: 700px;
+  width: 100%;
+  background-blend-mode: overlay;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 30px;
+}

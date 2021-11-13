@@ -1,3 +1,4 @@
+import { TextField } from '@mui/material';
 import React from 'react'
 import { useForm } from "react-hook-form";
 import useAuth from '../../../hooks/useAuth';
@@ -5,9 +6,8 @@ const MakeAdmin = () => {
 
  const { register, handleSubmit} = useForm();
 
- const onSubmit = (data) => {
-   // const user ={email}
-  console.log(data)
+  const onSubmit = (data) => {
+   alert("Admin made Successfully!!");
     fetch("http://localhost:5000/makeAdmin", {
       method: "PUT",
       headers: { "content-type": "application/json" },
@@ -15,14 +15,17 @@ const MakeAdmin = () => {
     })
       .then((res) => res.json())
       .then((result) => console.log(result));
-    console.log(data);
   };
  return (
   <div>
    <div>
-      <h1>make admin</h1>
+      <h1>Make Admin</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <input
+         <TextField
+           sx={{width: '30%',
+              m: 1,}}
+           id="outlined-basic"
+           variant="outlined"
           className="input-field"
           name="email"
           placeholder="Email"
@@ -30,11 +33,14 @@ const MakeAdmin = () => {
           {...register("email", { required: true })}
         />
         <br />
-
-        <input
+         <TextField
+           sx={{width: '30%',
+              m: 1,}}
           className="submit-btn btn btn-danger mt-3"
           type="submit"
-          value="make as Admin"
+           value="Make as Admin"
+           id="filled-basic"
+           variant="filled"
         />
       </form>
     </div>

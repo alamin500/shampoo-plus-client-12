@@ -7,20 +7,11 @@ import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { Switch, Route, Link, useRouteMatch } from 'react-router-dom';
 import { Button } from '@mui/material';
-// import DashboardHome from '../DashboardHome/DashboardHome';
-// import MakeAdmin from '../MakeAdmin/MakeAdmin';
-// import AddDoctor from '../AddDoctor/AddDoctor';
-
 import AddProducts from '../AddProducts/AddProducts';
 import MyOrders from '../MyOrders/MyOrders';
 import ManageAllOrders from '../ManageAllOrders/ManageAllOrders';
@@ -29,18 +20,10 @@ import useAuth from '../../../hooks/useAuth';
 import ManageProducts from '../ManageProducts/ManageProducts';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import AddReview from '../AddReview/AddReview';
-// import AdminRoute from './../../Login/AdminRoute/AdminRoute';
-
 const drawerWidth = 200;
-
 function Dashboard(props) {
   const { user, logout, admin } = useAuth();
 const [role, setRole] = useState(false);
-  // let admins =
-
-
-  console.log(role)
-
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   let { path, url } = useRouteMatch();
@@ -48,21 +31,12 @@ const [role, setRole] = useState(false);
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
-
   const drawer = (
     <div>
       <Toolbar> <Typography sx={{fontWeight:700, color:'#da1563'}} variant='h5' noWrap component='div'>
          Dashboard
           </Typography> </Toolbar>
       <Divider />
-      <Link to='/products' style={{ textDecoration: 'none', color: '#da1563' }}>
-        <Button color='inherit'>Products</Button>
-      </Link>
-      {/* <hr />
-      <Link to={`${url}`}>
-        <Button color='inherit'>Dashboard</Button>
-      </Link> */}
-
       <Box>
         {user.email &&
           <Box>
@@ -121,7 +95,6 @@ const [role, setRole] = useState(false);
               }}
               to="/"
             >
-
             <Button onClick={logout} variant='contained' color='error'>
               Logout
             </Button>
@@ -140,14 +113,11 @@ const [role, setRole] = useState(false);
           </Link>
         )}
       </Box>
-      {/* } */}
-
     </div>
   );
 
   const container =
     window !== undefined ? () => window().document.body : undefined;
-
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
@@ -184,7 +154,7 @@ const [role, setRole] = useState(false);
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
+            keepMounted: true,
           }}
           sx={{
             display: { xs: 'block', sm: 'none' },
@@ -224,9 +194,6 @@ const [role, setRole] = useState(false);
           <Route exact path={path}>
             <MyOrders></MyOrders>
           </Route>
-          {/* <Route path={`${path}/myOrders`}>
-            <MyOrders></MyOrders>
-          </Route> */}
           <Route path={`${path}/addReview`}>
                 <AddReview></AddReview>
             </Route>
@@ -245,12 +212,6 @@ const [role, setRole] = useState(false);
           <Route path={`${path}/manageProducts`}>
             <ManageProducts></ManageProducts>
           </Route>
-          {/* <AdminRoute path={`${path}/makeAdmin`}>
-                        <MakeAdmin></MakeAdmin>
-                    </AdminRoute>
-                    <AdminRoute path={`${path}/addDoctor`}>
-                        <AddDoctor></AddDoctor>
-                    </AdminRoute> */}
         </Switch>
       </Box>
     </Box>
@@ -258,10 +219,6 @@ const [role, setRole] = useState(false);
 }
 
 Dashboard.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
   window: PropTypes.func,
 };
 

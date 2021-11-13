@@ -6,39 +6,45 @@ import useAuth from '../../../hooks/useAuth';
 const AddReview = () => {
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const [value, setValue] = React.useState("2");
-  console.log(value)
 
   const { user } = useAuth();
   const onSubmit = (data) => {
+    alert("Your review successfully added. Thanks!!");
   data.number = value;
-    console.log(data)
     fetch("http://localhost:5000/addReview", {
-
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),
     })
       .then((res) => res.json())
       .then((result) => console.log(result));
-
-    console.log(data);
   };
  return (
   <div>
       <h1>Add Review</h1>
      <form onSubmit={handleSubmit(onSubmit)}>
-
         <TextField
-          sx={{padding:'10px'}}
+          sx={{width: '30%',
+              m: 1,}}
           name="email"
           value={user?.email}
          type="email"
          id="outlined-basic"
-
          variant="outlined"
           {...register("email", { required: true })}
        />
-
+        <br />
+       <TextField
+        sx={{width: '30%',
+              m: 1,}}
+          className="input-field"
+          name="comments"
+        id="outlined-basic"
+         label="Comments"
+         variant="outlined"
+          {...register("comments", { required: true })}
+        />
+       <br />
         <Typography component="legend">Rate Us</Typography>
       <Rating
         name="simple-controlled"
@@ -47,23 +53,15 @@ const AddReview = () => {
           setValue(newValue);
         }}
       />
-        <br />
-        <TextField
-          className="input-field"
-          name="comments"
-
-        id="outlined-basic"
-         label="Comments"
-         variant="outlined"
-          {...register("comments", { required: true })}
-        />
        <br />
-       <br />
-
-        <TextField
-          className="submit-btn btn btn-danger mt-3"
+       <TextField
+         id="filled-basic"
+         variant="filled"
+         sx={{width: '30%',
+              m: 1,}}
+          className="submit-btn"
           type="submit"
-          value="Register"
+          value="Add Review"
         />
       </form>
     </div>

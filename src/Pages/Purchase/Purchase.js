@@ -3,7 +3,6 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { useParams } from 'react-router';
 import useFirebase from '../../hooks/useFirebase';
-
 import useAuth from '../../hooks/useAuth';
 import { Box } from '@mui/system';
 import { Button, Container, Grid, TextField, Typography } from '@mui/material';
@@ -13,8 +12,6 @@ const Purchase = () => {
   const { user } = useFirebase();
   const [services, setServices] = useState([]);
   const [success, setSuccess] = useState(null);
-  // const [books, setBooks] = useState([]);
-  // const { setUsername } = useAuth();
   useEffect(() => {
     fetch('http://localhost:5000/products')
       .then((res) => res.json())
@@ -25,7 +22,6 @@ const Purchase = () => {
     data.email = user?.email;
     data._id = `${Math.random()}`;
     setSuccess(true);
-    // setUsername(books.length + 1);
     fetch('http://localhost:5000/order', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
@@ -34,11 +30,6 @@ const Purchase = () => {
       .then((res) => res.json())
       .then((result) => setSuccess(result));
   };
-  // useEffect(() => {
-  //   fetch(`http://localhost:5000/myBooks/${user?.email}`)
-  //     .then((res) => res.json())
-  //     .then((data) => setBooks(data));
-  // }, [user.email, success]);
   return (
     <div>
       <Container>
@@ -89,20 +80,17 @@ const Purchase = () => {
                 textAlign: 'left',
                 justifyContent: 'center',
                 alignItems: 'center',
-
               }}
               className='d-flex justify-content-center align-items-center'
             >
               <Box sx={{ margin: '10px' }}>
                 <img
-
                   height='80px'
                   src={value?.img}
                   className='book-img'
                   alt=''
                 />
               </Box>
-
 
               <Box>
                 <Box sx={{ marginBottom: '10px' }}>
@@ -139,8 +127,7 @@ const Purchase = () => {
                     }}
                   />
                 </Box>
-                </Box>
-
+              </Box>
             </Box>
           </Grid>
         </Grid>

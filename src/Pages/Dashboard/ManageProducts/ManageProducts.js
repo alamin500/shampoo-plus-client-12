@@ -10,7 +10,6 @@ import {
 import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
-
 const ManageProducts = () => {
   const [products, setProducts] = useState([]);
   const [control, setConrol] = useState(false);
@@ -19,7 +18,6 @@ const ManageProducts = () => {
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, [control]);
-  console.log(products);
   const handleDelete = (id) => {
     fetch(`http://localhost:5000/deleteProducts/${id}`, {
       method: 'DELETE',
@@ -69,31 +67,28 @@ const ManageProducts = () => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {products.map(
-                  (product, index) =>
-
-                      <TableRow
-                        key={product._id}
-                        sx={{
-                          '&:last-child td, &:last-child th': { bproduct: 0 },
-                        }}
+                {products.map((product, index) => (
+                  <TableRow
+                    key={product._id}
+                    sx={{
+                      '&:last-child td, &:last-child th': { bproduct: 0 },
+                    }}
+                  >
+                    <TableCell component='th' scope='row'>
+                      {product.name}
+                    </TableCell>
+                    <TableCell align='right'>{product.description}</TableCell>
+                    <TableCell align='right'>{product.price}</TableCell>
+                    <TableCell align='right'>
+                      <button
+                        className='btn btn-danger '
+                        onClick={() => deleteConfirm(product._id)}
                       >
-                        <TableCell component='th' scope='row'>
-                          {product.name}
-                        </TableCell>
-                        <TableCell align='right'>{product.description}</TableCell>
-                        <TableCell align='right'>{product.price}</TableCell>
-                        <TableCell align='right'>
-                          <button
-                            className='btn btn-danger '
-                            onClick={() => deleteConfirm(product._id)}
-                          >
-                            Delete
-                          </button>
-                        </TableCell>
-                      </TableRow>
-
-                )}
+                        Delete
+                      </button>
+                    </TableCell>
+                  </TableRow>
+                ))}
               </TableBody>
             </Table>
           </TableContainer>
