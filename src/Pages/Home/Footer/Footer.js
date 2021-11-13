@@ -90,7 +90,7 @@ const Footer = () => {
             justifyContent: 'center',
           }}
         >
-          <Grid xs={4} className='col-md-6'>
+          <Grid xs={12} md={4} lg={4} className='col-md-6'>
             <div className='left-container text-start'>
               <br />
               <Typography
@@ -121,7 +121,7 @@ const Footer = () => {
               </p>
             </div>
           </Grid>
-          <Grid xs={2} className='col-md-3'>
+          <Grid xs={6} md={2} lg={2} className='col-md-3'>
             <div className='footer-menu-container'>
               <br />
               <ul>
@@ -137,7 +137,7 @@ const Footer = () => {
               </ul>
             </div>
           </Grid>
-          <Grid xs={2} className='col-md-3'>
+          <Grid xs={6} md={2} lg={2} className='col-md-3'>
             <div className='footer-menu-container'>
               <ul>
                 <br />
@@ -154,7 +154,7 @@ const Footer = () => {
             </div>
           </Grid>
 
-          <Grid xs={2}>
+          <Grid xs={6} md={2} lg={2}>
             <Box className='footer-menu-container'>
               <br />
               <Typography
@@ -181,7 +181,7 @@ const Footer = () => {
               </ul>
             </Box>
           </Grid>
-          <Grid xs={2} className='footer-menu-container'>
+          <Grid xs={6} md={2} lg={2} className='footer-menu-container'>
             <Box>
               <ul>
                 <Typography
