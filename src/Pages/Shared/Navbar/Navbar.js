@@ -122,7 +122,7 @@ const Navbar = () => {
                   Dashboard
                 </Button>
               </NavLink>
-
+              <span >{user.displayName}</span>
               <Button onClick={logout} color='inherit'>
                 Logout
               </Button>

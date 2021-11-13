@@ -23,7 +23,11 @@ const Reviews = () => {
   const value = 3;
   return (
     <Container>
+      <Typography sx={{margin:"20px",paddingTop:"20px"}} variant="h4" gutterBottom component="div">
+        REVIEWS
+      </Typography>
       <Grid container spacing={{ xs: 2, md: 3 }}>
+
         {reviews.map((review) => (
           <Grid item xs={12} sm={6} md={4}>
             <Card sx={{ minWidth: 275 }}>

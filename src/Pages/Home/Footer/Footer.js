@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Footer.css';
 import Grid from '@mui/material/Grid';
-import { Container, Typography,Button } from '@mui/material';
+import { Container, Typography, Button } from '@mui/material';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
@@ -12,51 +12,71 @@ import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import PaymentsIcon from '@mui/icons-material/Payments';
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
+// import img from 'https://i.ibb.co/gzwbZgr/subscribe-newsletter-with-people-working-together-free-vector.jpg';
+
 import TextField from '@mui/material/TextField';
 const Footer = () => {
   return (
-    <Box sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }} sx={{ backgroundColor: '#1c1b38' }} className='container'>
+    <Box
+      sx={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+      sx={{ backgroundColor: '#1c1b38' }}
+      className='container'
+    >
       <Grid container spacing={2} className='footer-image'>
-        <Grid item xs={8}>
+        <Grid xs={12} item xs={12} sm={7} md={7}>
           <br />
-          <Box
-
-          >
-            <div className=' w-50 m-3 text-center footer-us'>
-               <Typography
-                sx={{ color: 'white' }}
+          <Box sx={{ display:"flex", alignItems:'center', justifyContent:'flex-end'}}>
+            <Box>
+              <div className=' w-50 m-3 text-center footer-us'>
+              <Typography
+                sx={{ color: 'white',  fontWeight:"bold" }}
                 variant='h4'
                 gutterBottom
                 component='div'
               >
                 SUBSCRIBE TO OUR NEWSLETTER
               </Typography>
-               <Typography
-                sx={{ color: 'white' }}
+              <Typography
+                sx={{ color: 'white'}}
                 variant='body2'
                 gutterBottom
                 component='div'
-
               >
-                Subscribe to the Shampoo Plus newsletter and stay updated on the latest special offers!
+                Subscribe to the Shampoo Plus newsletter and stay updated on the
+                latest special offers!
               </Typography>
-
             </div>
 
-            <div  className='d-flex m-3 w-50 m-3'>
-              <TextField  sx={{margin:"2px"}} id="filled-basic" label="Email" variant="outlined" />
-               <Button color='error' sx={{margin:"2px",padding:"15px",backgroundColor:"#da1563"}} variant="contained" size="large">
-          SUBSCRIBE
-        </Button>
+            <div className='d-flex m-3 w-50 m-3'>
+              <TextField
+                sx={{ margin: '2px' }}
+                id='filled-basic'
+                label='Email'
+                variant='outlined'
+              />
+              <Button
+                color='error'
+                sx={{
+                  margin: '2px',
+                  padding: '15px',
+                  backgroundColor: '#da1563',
+                }}
+                variant='contained'
+                size='large'
+              >
+                SUBSCRIBE
+              </Button>
             </div>
+            </Box>
           </Box>
         </Grid>
-        <Grid item xs={4}>
-          <h1>Hello</h1>
+        <Grid xs={12} item sm={5} md={5}>
+
+          <img height="250px" src='https://i.ibb.co/gzwbZgr/subscribe-newsletter-with-people-working-together-free-vector.jpg' alt="" />
         </Grid>
       </Grid>
       <Container>
@@ -72,7 +92,6 @@ const Footer = () => {
         >
           <Grid xs={4} className='col-md-6'>
             <div className='left-container text-start'>
-
               <br />
               <Typography
                 sx={{ color: '#d7165f' }}
@@ -96,7 +115,9 @@ const Footer = () => {
               <Link className='footer-link'>trendytravel@mail.com</Link>
 
               <p className='mt-2'>
-                <small className='footer-menu'>Colac © . All rights reserved.</small>
+                <small className='footer-menu'>
+                  Colac © . All rights reserved.
+                </small>
               </p>
             </div>
           </Grid>
@@ -144,8 +165,7 @@ const Footer = () => {
               >
                 PAMENT METHOD
               </Typography>
-               <ul>
-
+              <ul>
                 <Box sx={{ color: 'white' }}>
                   <AccountBalanceIcon />
                 </Box>
@@ -195,4 +215,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
