@@ -8,7 +8,6 @@ import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 import Home from './Pages/Home/Home/Home';
 import Products from './Pages/Products/Products';
 import Purchase from './Pages/Purchase/Purchase';
-import AddProducts from './Pages/Dashboard/AddProducts/AddProducts';
 import MyOrders from './Pages/Dashboard/MyOrders/MyOrders';
 import AddReview from './Pages/Dashboard/AddReview/AddReview';
 import Reviews from './Pages/Home/Reviews/Reviews';
@@ -28,11 +27,9 @@ function App() {
             <Route path='/products'>
               <Products></Products>
             </Route>
-
             <PrivateRoute path={`/purchase/:purchaseId`}>
               <Purchase></Purchase>
             </PrivateRoute>
-
             <Route path='/dashboard'>
               <Dashboard></Dashboard>
             </Route>

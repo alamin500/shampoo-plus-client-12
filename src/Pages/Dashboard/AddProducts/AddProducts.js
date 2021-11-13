@@ -26,7 +26,6 @@ const AddProducts = () => {
           sx={{ width: '30%', m: 1 }}
           {...register('name', { required: true })}
           placeholder='Name'
-          className='p-2 m-2 w-25'
           id='outlined-basic'
           variant='outlined'
         />
@@ -36,7 +35,6 @@ const AddProducts = () => {
           sx={{ width: '30%', m: 1 }}
           {...register('description')}
           placeholder='Description'
-          className='p-2 m-2 w-25'
           id='outlined-basic'
           variant='outlined'
         />
@@ -46,7 +44,6 @@ const AddProducts = () => {
           type='price'
           {...register('price')}
           placeholder='Price'
-          className='p-2 m-2 w-25'
           id='outlined-basic'
           variant='outlined'
         />
@@ -55,7 +52,6 @@ const AddProducts = () => {
           sx={{ width: '30%', m: 1 }}
           {...register('img')}
           placeholder='Image'
-          className='p-2 m-2 w-25'
           id='outlined-basic'
           variant='outlined'
         />
@@ -66,7 +62,6 @@ const AddProducts = () => {
           variant='filled'
           type='submit'
           value="Add Product"
-          className='p-2 m-2 w-25'
         />
       </form>
     </div>

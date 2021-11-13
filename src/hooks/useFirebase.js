@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, updateProfile, getIdToken, signOut } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, updateProfile, signOut } from "firebase/auth";
 import initializeFirebase from '../Pages/Login/Login/Firebase/firebase.init';
 
 initializeFirebase();
@@ -9,7 +9,6 @@ const useFirebase = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [authError, setAuthError] = useState('');
     const [admin, setAdmin] = useState(false);
-    const [token, setToken] = useState('');
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
     const registerUser = (email, password, name, history) => {
@@ -60,21 +59,6 @@ const useFirebase = () => {
             }).finally(() => setIsLoading(false));
     }
     useEffect(() => {
-        const unsubscribed = onAuthStateChanged(auth, (user) => {
-            if (user) {
-                setUser(user);
-                getIdToken(user)
-                    .then(idToken => {
-                        setToken(idToken);
-                    })
-            } else {
-                setUser({})
-            }
-            setIsLoading(false);
-        });
-        return () => unsubscribed;
-    }, [auth])
-    useEffect(() => {
         fetch(`https://thawing-eyrie-17375.herokuapp.com/admin/${user.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data))
@@ -103,7 +87,6 @@ const useFirebase = () => {
     return {
         user,
         admin,
-        token,
         isLoading,
         authError,
         registerUser,

@@ -47,7 +47,6 @@ const MyOrders = () => {
       setDelete(false);
     }
   };
-  // let count = 1;
   let count = orders.filter((order, index) => order.email === user.email);
   console.log(count);
   return (
@@ -65,7 +64,7 @@ const MyOrders = () => {
         </button>
       ) : (
         <>
-            <h1>My orders: { count.length}</h1>
+          <h1>My orders: {count.length}</h1>
           <TableContainer component={Paper}>
             <Table sx={{}} aria-label='Appointments table'>
               <TableHead>

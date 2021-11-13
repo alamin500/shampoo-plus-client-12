@@ -12,71 +12,77 @@ import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import PaymentsIcon from '@mui/icons-material/Payments';
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
-// import img from 'https://i.ibb.co/gzwbZgr/subscribe-newsletter-with-people-working-together-free-vector.jpg';
-
 import TextField from '@mui/material/TextField';
 const Footer = () => {
   return (
     <Box
       sx={{
-        marginTop:"20px",
+        marginTop: '20px',
         overflow: 'hidden',
-        backgroundColor: '#1c1b38'
+        backgroundColor: '#1c1b38',
       }}
-
       className='container'
     >
       <Grid container spacing={2} className='footer-image'>
         <Grid xs={12} item sm={7} md={7}>
           <br />
-          <Box sx={{ display:"flex", alignItems:'center', justifyContent:'flex-end'}}>
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'flex-end',
+            }}
+          >
             <Box>
               <div className=' w-50 m-3 text-center footer-us'>
-              <Typography
-                sx={{ color: 'white',  fontWeight:"bold" }}
-                variant='h4'
-                gutterBottom
-                component='div'
-              >
-                SUBSCRIBE TO OUR NEWSLETTER
-              </Typography>
-              <Typography
-                sx={{ color: 'white'}}
-                variant='body2'
-                gutterBottom
-                component='div'
-              >
-                Subscribe to the Shampoo Plus newsletter and stay updated on the
-                latest special offers!
-              </Typography>
-            </div>
-
-            <div className='d-flex m-3 w-50 m-3'>
-              <TextField
-                sx={{ margin: '2px' }}
-                id='filled-basic'
-                label='Email'
-                variant='outlined'
-              />
-              <Button
-                color='error'
-                sx={{
-                  margin: '2px',
-                  padding: '15px',
-                  backgroundColor: '#da1563',
-                }}
-                variant='contained'
-                size='large'
-              >
-                SUBSCRIBE
-              </Button>
-            </div>
+                <Typography
+                  sx={{ color: 'white', fontWeight: 'bold' }}
+                  variant='h4'
+                  gutterBottom
+                  component='div'
+                >
+                  SUBSCRIBE TO OUR NEWSLETTER
+                </Typography>
+                <Typography
+                  sx={{ color: 'white' }}
+                  variant='body2'
+                  gutterBottom
+                  component='div'
+                >
+                  Subscribe to the Shampoo Plus newsletter and stay updated on
+                  the latest special offers!
+                </Typography>
+              </div>
+              <div className='d-flex m-3 w-50 m-3'>
+                <TextField
+                  sx={{ margin: '2px' }}
+                  id='filled-basic'
+                  label='Email'
+                  variant='outlined'
+                />
+                <Button
+                  color='error'
+                  sx={{
+                    margin: '2px',
+                    padding: '15px',
+                    backgroundColor: '#da1563',
+                  }}
+                  variant='contained'
+                  size='large'
+                >
+                  SUBSCRIBE
+                </Button>
+              </div>
             </Box>
           </Box>
         </Grid>
         <Grid xs={6} item sm={5} md={5}>
-
-          <img height="250px" className="subscribe-image" src='https://i.ibb.co/gzwbZgr/subscribe-newsletter-with-people-working-together-free-vector.jpg' alt="" />
+          <img
+            height='250px'
+            className='subscribe-image'
+            src='https://i.ibb.co/gzwbZgr/subscribe-newsletter-with-people-working-together-free-vector.jpg'
+            alt=''
+          />
         </Grid>
       </Grid>
       <Container>
@@ -187,7 +193,7 @@ const Footer = () => {
             <Box>
               <ul>
                 <Typography
-                  sx={{ color: '#d7165f',marginTop: '25px' }}
+                  sx={{ color: '#d7165f', marginTop: '25px' }}
                   variant='h6'
                   gutterBottom
                   component='div'

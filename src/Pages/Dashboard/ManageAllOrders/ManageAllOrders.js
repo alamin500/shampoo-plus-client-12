@@ -10,7 +10,6 @@ import {
   TableHead,
   TableRow,
 } from '@mui/material';
-
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -30,7 +29,6 @@ const ManageAllOrders = () => {
       .then((res) => res.json())
       .then((result) => console.log(result));
   };
-
   const handleOrderId = (id) => {
     setOrderId(id);
   };
@@ -103,7 +101,6 @@ const ManageAllOrders = () => {
                     </TableCell>
                     <TableCell align='right'>{order.description}</TableCell>
                     <TableCell align='right'>{order.price}</TableCell>
-
                     <TableCell align='right'>
                       <Box sx={{ minWidth: 120 }}>
                         <FormControl fullWidth>
@@ -113,7 +110,6 @@ const ManageAllOrders = () => {
                             {order?.status?.value === 30 && 'confirm'}
                             {!order?.status?.value && 'pending'}
                           </InputLabel>
-
                           <Select
                             labelId='demo-simple-select-label'
                             id='demo-simple-select'
@@ -128,7 +124,6 @@ const ManageAllOrders = () => {
                         </FormControl>
                       </Box>
                     </TableCell>
-
                     <TableCell align='right'>
                       <button
                         className='btn btn-danger '

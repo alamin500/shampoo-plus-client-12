@@ -3,7 +3,6 @@ import { Box } from '@mui/system';
 import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
-
 import Product from '../Product/Product';
 const Products = (props) => {
   const { home = false } = props;
