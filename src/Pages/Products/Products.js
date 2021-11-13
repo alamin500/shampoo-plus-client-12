@@ -9,7 +9,7 @@ const Products = (props) => {
   const { home = false } = props;
   const [services, setServices] = useState([]);
   useEffect(() => {
-    fetch('http://localhost:5000/products')
+    fetch('https://thawing-eyrie-17375.herokuapp.com/products')
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, []);

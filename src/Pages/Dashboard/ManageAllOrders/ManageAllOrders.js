@@ -22,7 +22,7 @@ const ManageAllOrders = () => {
   const [orderId, setOrderId] = React.useState('');
   const handleChange = (event) => {
     setNumber(event.target.value);
-    fetch(`http://localhost:5000/statusUpdate/${orderId}`, {
+    fetch(`https://thawing-eyrie-17375.herokuapp.com/statusUpdate/${orderId}`, {
       method: 'PUT',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(event.target),
@@ -38,12 +38,12 @@ const ManageAllOrders = () => {
   const [control, setConrol] = useState(false);
   const [admin, setAdmin] = useState(false);
   useEffect(() => {
-    fetch(`http://localhost:5000/allOrders`)
+    fetch(`https://thawing-eyrie-17375.herokuapp.com/allOrders`)
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, [control]);
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/deleteOrder/${id}`, {
+    fetch(`https://thawing-eyrie-17375.herokuapp.com/deleteOrder/${id}`, {
       method: 'DELETE',
       headers: { 'content-type': 'application/json' },
     })
@@ -79,8 +79,7 @@ const ManageAllOrders = () => {
         </button>
       ) : (
         <>
-          <h1>Manage All Orders</h1>
-          <h3>You select {orderId}</h3>
+            <h1>All Orders: {orders.length}</h1>
           <TableContainer component={Paper}>
             <Table sx={{}} aria-label='Appointments table'>
               <TableHead>

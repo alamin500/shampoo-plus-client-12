@@ -13,7 +13,7 @@ const Purchase = () => {
   const [services, setServices] = useState([]);
   const [success, setSuccess] = useState(null);
   useEffect(() => {
-    fetch('http://localhost:5000/products')
+    fetch('https://thawing-eyrie-17375.herokuapp.com/products')
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, [success]);
@@ -22,7 +22,7 @@ const Purchase = () => {
     data.email = user?.email;
     data._id = `${Math.random()}`;
     setSuccess(true);
-    fetch('http://localhost:5000/order', {
+    fetch('https://thawing-eyrie-17375.herokuapp.com/order', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(data),

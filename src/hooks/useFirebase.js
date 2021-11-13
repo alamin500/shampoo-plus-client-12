@@ -75,7 +75,7 @@ const useFirebase = () => {
         return () => unsubscribed;
     }, [auth])
     useEffect(() => {
-        fetch(`http://localhost:5000/admin/${user.email}`)
+        fetch(`https://thawing-eyrie-17375.herokuapp.com/admin/${user.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data))
     }, [user.email])
@@ -91,7 +91,7 @@ const useFirebase = () => {
     }
     const saveUser = (email, displayName, method) => {
         const user = { email, displayName };
-        fetch('http://localhost:5000/users', {
+        fetch('https://thawing-eyrie-17375.herokuapp.com/users', {
             method: method,
             headers: {
                 'content-type': 'application/json'

@@ -14,7 +14,7 @@ import AddReview from './Pages/Dashboard/AddReview/AddReview';
 import Reviews from './Pages/Home/Reviews/Reviews';
 import ManageAllOrders from './Pages/Dashboard/ManageAllOrders/ManageAllOrders';
 import Navigation from './Pages/Shared/Navigation/Navigation';
-
+import PrivateRoute from './PrivateRoute/PrivateRoute';
 function App() {
   return (
     <div className='App'>
@@ -28,9 +28,11 @@ function App() {
             <Route path='/products'>
               <Products></Products>
             </Route>
-            <Route path='/purchase/:purchaseId'>
+
+            <PrivateRoute path={`/purchase/:purchaseId`}>
               <Purchase></Purchase>
-            </Route>
+            </PrivateRoute>
+
             <Route path='/dashboard'>
               <Dashboard></Dashboard>
             </Route>

@@ -10,7 +10,7 @@ const AddProducts = () => {
   const onSubmit = (data) => {
     alert('Added Successfully');
     data.email = user?.email;
-    fetch('http://localhost:5000/addShampoo', {
+    fetch('https://thawing-eyrie-17375.herokuapp.com/addShampoo', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(data),

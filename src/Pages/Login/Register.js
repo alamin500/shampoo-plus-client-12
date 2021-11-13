@@ -33,8 +33,7 @@ const Register = () => {
     e.preventDefault();
   };
   return (
-    // <div className='register-image'>
-      <div>
+    <div className='register-image'>
       <Container>
         <Grid container spacing={2}>
           <Grid item sx={{ mt: 8 }} xs={12} md={12}>

@@ -19,12 +19,12 @@ const MyOrders = () => {
   const [control, setConrol] = useState(false);
   const [deletes, setDelete] = useState(false);
   useEffect(() => {
-    fetch(`http://localhost:5000/allOrders`)
+    fetch(`https://thawing-eyrie-17375.herokuapp.com/allOrders`)
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, [control]);
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/deleteOrder/${id}`, {
+    fetch(`https://thawing-eyrie-17375.herokuapp.com/deleteOrder/${id}`, {
       method: 'DELETE',
       headers: { 'content-type': 'application/json' },
     })
@@ -47,7 +47,9 @@ const MyOrders = () => {
       setDelete(false);
     }
   };
-  let count = 1;
+  // let count = 1;
+  let count = orders.filter((order, index) => order.email === user.email);
+  console.log(count);
   return (
     <Container>
       {orders.length === 0 ? (
@@ -63,7 +65,7 @@ const MyOrders = () => {
         </button>
       ) : (
         <>
-          <h1>My orders</h1>
+            <h1>My orders: { count.length}</h1>
           <TableContainer component={Paper}>
             <Table sx={{}} aria-label='Appointments table'>
               <TableHead>

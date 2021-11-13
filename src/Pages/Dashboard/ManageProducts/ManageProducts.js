@@ -14,12 +14,12 @@ const ManageProducts = () => {
   const [products, setProducts] = useState([]);
   const [control, setConrol] = useState(false);
   useEffect(() => {
-    fetch('http://localhost:5000/products')
+    fetch('https://thawing-eyrie-17375.herokuapp.com/products')
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, [control]);
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/deleteProducts/${id}`, {
+    fetch(`https://thawing-eyrie-17375.herokuapp.com/deleteProducts/${id}`, {
       method: 'DELETE',
       headers: { 'content-type': 'application/json' },
     })
@@ -55,7 +55,7 @@ const ManageProducts = () => {
         </button>
       ) : (
         <>
-          <h1>My products</h1>
+            <h1>All products: {products.length}</h1>
           <TableContainer component={Paper}>
             <Table sx={{}} aria-label='Appointments table'>
               <TableHead>
