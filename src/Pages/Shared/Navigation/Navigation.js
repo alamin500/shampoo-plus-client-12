@@ -69,14 +69,34 @@ export default function Navigation() {
       // onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        <ListItem button>
-          <ListItemText>
-            <Link className={mobileNavItem} to='/'>
-              Home
-            </Link>
-          </ListItemText>
-        </ListItem>
-        <Divider />
+         {user?.email ? (
+                <Box>
+
+                  <NavLink
+                    style={{ textDecoration: 'none', color: 'white' }}
+                    to='/dashboard'
+                  >
+                    <Button
+                      variant='contained'
+                      sx={{ backgroundColor: '#da1563' }}
+                      color='error'
+                    >
+                      Dashboard
+                    </Button>
+                  </NavLink>
+                  <span>{user.displayName}</span>
+                  <Button onClick={logout} color='inherit'>
+                    Logout
+                  </Button>
+                </Box>
+              ) : (
+                <NavLink
+                  style={{ textDecoration: 'none', color: 'white' }}
+                  to='/login'
+                >
+                  <Button color='inherit'>Login</Button>
+                </NavLink>
+              )}
 
         <ListItem button>
           <ListItemText>
@@ -125,7 +145,8 @@ export default function Navigation() {
               </Link>
             </Typography>
 
-            <div className={navItemContainer}>
+       <Box sx={{display:'flex'}} className={navItemContainer}>
+
               <Link
                 to='/products'
                 style={{ textDecoration: 'none', color: 'white' }}
@@ -169,7 +190,8 @@ export default function Navigation() {
                   <Button color='inherit'>Login</Button>
                 </NavLink>
               )}
-            </div>
+
+            </Box>
           </Toolbar>
         </AppBar>
       </Box>

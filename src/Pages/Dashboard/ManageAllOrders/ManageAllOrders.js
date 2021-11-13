@@ -115,7 +115,10 @@ const ManageAllOrders = () => {
                       <Box sx={{ minWidth: 120 }}>
                         <FormControl fullWidth>
                           <InputLabel id='demo-simple-select-label'>
-                            Pending
+                            {order?.status?.value === 10 && 'pending'}
+                            {order?.status?.value === 20 && 'shipped'}
+                            {order?.status?.value === 30 && 'confirm'}
+                            {!order?.status?.value  && 'pending'}
                           </InputLabel>
 
                           <Select

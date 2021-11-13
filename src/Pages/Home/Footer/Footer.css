@@ -1,6 +1,9 @@
 #root{
   background-color: #fcf3f7;
 }
+body{
+   background-color: #fcf3f7;
+}
 .footer-image {
   background-image: url("https://i.ibb.co/jhcZ4Pg/hair.jpg");
   height: 100%;
@@ -47,4 +50,9 @@
 }
 .footer-menu{
   color: #f7f7f7;
+}
+@media screen and (min-width: 480px) {
+  .footer-image{
+
+  }
 }

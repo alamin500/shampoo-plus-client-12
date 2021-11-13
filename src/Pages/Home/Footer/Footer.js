@@ -27,7 +27,7 @@ const Footer = () => {
       className='container'
     >
       <Grid container spacing={2} className='footer-image'>
-        <Grid xs={12} item xs={12} sm={7} md={7}>
+        <Grid xs={12} item sm={7} md={7}>
           <br />
           <Box sx={{ display:"flex", alignItems:'center', justifyContent:'flex-end'}}>
             <Box>
@@ -76,7 +76,7 @@ const Footer = () => {
         </Grid>
         <Grid xs={12} item sm={5} md={5}>
 
-          <img height="250px" src='https://i.ibb.co/gzwbZgr/subscribe-newsletter-with-people-working-together-free-vector.jpg' alt="" />
+          <img height="250px" className="footer-image" src='https://i.ibb.co/gzwbZgr/subscribe-newsletter-with-people-working-together-free-vector.jpg' alt="" />
         </Grid>
       </Grid>
       <Container>
@@ -124,6 +124,7 @@ const Footer = () => {
           <Grid xs={6} md={2} lg={2} className='col-md-3'>
             <div className='footer-menu-container'>
               <br />
+              <br />
               <ul>
                 <Link className='footer-link'>
                   <li className='footer-menu'>Booking Tours</li>
@@ -140,6 +141,7 @@ const Footer = () => {
           <Grid xs={6} md={2} lg={2} className='col-md-3'>
             <div className='footer-menu-container'>
               <ul>
+                <br />
                 <br />
                 <Link className='footer-link'>
                   <li className='footer-menu'>Machu Picchu London</li>

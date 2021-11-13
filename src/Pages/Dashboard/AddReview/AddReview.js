@@ -1,12 +1,13 @@
-import { Rating, Typography } from '@mui/material';
+import { Rating, TextField, Typography } from '@mui/material';
 import React from 'react'
 import { useForm } from "react-hook-form";
 import useAuth from '../../../hooks/useAuth';
 
 const AddReview = () => {
+  const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const [value, setValue] = React.useState("2");
   console.log(value)
-  const { register, handleSubmit, watch, errors } = useForm();
+
   const { user } = useAuth();
   const onSubmit = (data) => {
   data.number = value;
@@ -24,14 +25,17 @@ const AddReview = () => {
   };
  return (
   <div>
-      <h1>Review</h1>
+      <h1>Add Review</h1>
      <form onSubmit={handleSubmit(onSubmit)}>
 
-        <input
-          className="input-field"
+        <TextField
+          sx={{padding:'10px'}}
           name="email"
           value={user?.email}
-          type="email"
+         type="email"
+         id="outlined-basic"
+
+         variant="outlined"
           {...register("email", { required: true })}
        />
 
@@ -44,15 +48,19 @@ const AddReview = () => {
         }}
       />
         <br />
-        <input
+        <TextField
           className="input-field"
           name="comments"
-          placeholder="Comments"
+
+        id="outlined-basic"
+         label="Comments"
+         variant="outlined"
           {...register("comments", { required: true })}
         />
-        <br />
+       <br />
+       <br />
 
-        <input
+        <TextField
           className="submit-btn btn btn-danger mt-3"
           type="submit"
           value="Register"
