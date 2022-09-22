@@ -1,0 +1,15 @@
+.TazaLogo{
+ width: 120px;
+ padding-top: 7px;
+}
+
+.menu-item{
+ font-size: 18px !important;
+ margin-right: 10px !important;
+}
+@media (max-width: 580px) {
+   .TazaLogo{
+ width: 80px;
+ padding-top: 7px;
+}
+ }

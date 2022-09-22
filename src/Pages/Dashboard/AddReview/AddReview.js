@@ -11,7 +11,7 @@ const AddReview = () => {
   const onSubmit = (data) => {
     alert("Your review successfully added. Thanks!!");
   data.number = value;
-    fetch("https://thawing-eyrie-17375.herokuapp.com/addReview", {
+    fetch("http://localhost:5000/addReview", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),

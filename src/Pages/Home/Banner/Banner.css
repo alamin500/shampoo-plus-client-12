@@ -8,7 +8,7 @@
   background-position: center;
   color: white;
   padding: 30px;
-      margin-top: -65px;
+      margin-top: 65px;
 }
 .banner-image h1 {
   font-size: 70px;
@@ -47,6 +47,6 @@
   background-position: center;
   color: white;
   padding: 30px;
-      margin-top: -65px;
+      margin-top: 30px;
 }
 }

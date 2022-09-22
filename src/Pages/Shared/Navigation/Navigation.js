@@ -8,7 +8,7 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { makeStyles } from '@mui/styles';
 import { Link, NavLink } from 'react-router-dom';
-import { useTheme } from '@mui/material';
+import { Container, useTheme } from '@mui/material';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
@@ -16,6 +16,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import useAuth from '../../../hooks/useAuth';
+import './Navigation.css';
 
 export default function Navigation() {
   const { user, logout } = useAuth();
@@ -71,10 +72,7 @@ export default function Navigation() {
             </Button>
           </Box>
         ) : (
-          <NavLink
-            style={{ textDecoration: 'none', color: 'red' }}
-            to='/login'
-          >
+          <NavLink style={{ textDecoration: 'none', color: 'red' }} to='/login'>
             <Button color='inherit'>Login</Button>
           </NavLink>
         )}
@@ -98,10 +96,10 @@ export default function Navigation() {
     </Box>
   );
   return (
-    <>
+    <Container>
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar sx={{ backgroundColor: 'transparent' }} position='static'>
-          <Toolbar>
+        <AppBar  sx={{ backgroundColor: 'black' }} position='fixed'>
+          <Toolbar className='header-main'>
             <IconButton
               size='large'
               edge='start'
@@ -120,30 +118,34 @@ export default function Navigation() {
               sx={{ flexGrow: 1, textAlign: 'left' }}
             >
               <Link style={{ textDecoration: 'none', color: 'red' }} to='/'>
-                Shampoo Plus
+                <img
+                  className='TazaLogo'
+                  src='https://i.ibb.co/vQy4n6B/Screenshot-32-removebg-preview.png'
+                  alt=''
+                />
               </Link>
             </Typography>
             <Box sx={{ display: 'flex' }} className={navItemContainer}>
               <Link
                 to='/products'
-                style={{ textDecoration: 'none', color: 'red' }}
+                style={{ textDecoration: 'none', color: 'white' }}
               >
-                <Button color='inherit'>Products</Button>
+                <Button className='menu-item' color='inherit'>Products</Button>
               </Link>
               <Link className={navItem} to='/reviews'>
-                <Button style={{ color: 'red' }}>Reviews</Button>
+                <Button className='menu-item' style={{ color: 'white' }}>Reviews</Button>
               </Link>
 
               {user?.email ? (
                 <Box>
                   <Link
                     to='/myOrders'
-                    style={{ textDecoration: 'none', color: 'red' }}
+                    style={{ textDecoration: 'none', color: 'white' }}
                   >
-                    <Button color='inherit'>My Orders</Button>
+                    <Button className='menu-item' color='inherit'>My Orders</Button>
                   </Link>
                   <NavLink
-                    style={{ textDecoration: 'none', color: 'red' }}
+                    style={{ textDecoration: 'none', color: 'white' }}
                     to='/dashboard'
                   >
                     <Button
@@ -155,16 +157,16 @@ export default function Navigation() {
                     </Button>
                   </NavLink>
                   <span>{user.displayName}</span>
-                  <Button onClick={logout} style={{color: 'red' }}>
+                  <Button onClick={logout} style={{ color: 'white' }}>
                     Logout
                   </Button>
                 </Box>
               ) : (
                 <NavLink
-                  style={{ textDecoration: 'none', color: 'red' }}
+                  style={{ textDecoration: 'none', color: 'white' }}
                   to='/login'
                 >
-                  <Button style={{color: 'red' }}>Login</Button>
+                  <Button className='menu-item' style={{ color: 'white' }}>Login</Button>
                 </NavLink>
               )}
             </Box>
@@ -182,6 +184,6 @@ export default function Navigation() {
           </Drawer>
         </React.Fragment>
       </div>
-    </>
+    </Container>
   );
 }

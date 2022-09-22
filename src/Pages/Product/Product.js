@@ -14,13 +14,13 @@ const Product = ({ product }) => {
     <Grid item xs={4} sm={4} md={4}>
       <Card  sx={{ maxWidth: 345, height: {
       sx: 1.0, // 100%
-      sm: 520,
-      md: 520,
+      sm: 420,
+      md: 420,
     }  }}>
         <CardActionArea sx={{ paddingTop: '10px' }}>
           <CardMedia
             component='img'
-            height='305'
+            height='205'
             image={img}
             alt='green iguana'
           />
@@ -34,7 +34,7 @@ const Product = ({ product }) => {
               variant='body2'
               color='text.secondary'
             >
-              {description}
+              {description.slice(0, 90)}...
             </Typography>
             {user?.email ? (
               <Link to={`/purchase/${_id}`} style={{ textDecoration: 'none' }}>

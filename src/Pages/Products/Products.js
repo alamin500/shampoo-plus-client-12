@@ -8,7 +8,7 @@ const Products = (props) => {
   const { home = false } = props;
   const [services, setServices] = useState([]);
   useEffect(() => {
-    fetch('https://thawing-eyrie-17375.herokuapp.com/products')
+    fetch('http://localhost:5000/products')
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, []);
@@ -16,7 +16,7 @@ const Products = (props) => {
     <Box sx={{ flexGrow: 1 }}>
       <Container>
         <Typography
-          sx={{ fontWeight: 500, m: 2, color: 'success.main' }}
+          sx={{ fontWeight: 500,fontSize: '32px', m: 2, color: 'success.main' }}
           variant='h6'
           component='div'
         >

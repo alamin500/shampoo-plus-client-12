@@ -19,12 +19,12 @@ const MyOrders = () => {
   const [control, setConrol] = useState(false);
   const [deletes, setDelete] = useState(false);
   useEffect(() => {
-    fetch(`https://thawing-eyrie-17375.herokuapp.com/allOrders`)
+    fetch(`http://localhost:5000/allOrders`)
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, [control]);
   const handleDelete = (id) => {
-    fetch(`https://thawing-eyrie-17375.herokuapp.com/deleteOrder/${id}`, {
+    fetch(`http://localhost:5000/deleteOrder/${id}`, {
       method: 'DELETE',
       headers: { 'content-type': 'application/json' },
     })

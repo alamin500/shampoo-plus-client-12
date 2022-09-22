@@ -21,7 +21,7 @@ const ManageAllOrders = () => {
   const [orderId, setOrderId] = React.useState('');
   const handleChange = (event) => {
     setNumber(event.target.value);
-    fetch(`https://thawing-eyrie-17375.herokuapp.com/statusUpdate/${orderId}`, {
+    fetch(`http://localhost:5000/statusUpdate/${orderId}`, {
       method: 'PUT',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(event.target),
@@ -36,12 +36,12 @@ const ManageAllOrders = () => {
   const [control, setConrol] = useState(false);
   const [admin, setAdmin] = useState(false);
   useEffect(() => {
-    fetch(`https://thawing-eyrie-17375.herokuapp.com/allOrders`)
+    fetch(`http://localhost:5000/allOrders`)
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, [control]);
   const handleDelete = (id) => {
-    fetch(`https://thawing-eyrie-17375.herokuapp.com/deleteOrder/${id}`, {
+    fetch(`http://localhost:5000/deleteOrder/${id}`, {
       method: 'DELETE',
       headers: { 'content-type': 'application/json' },
     })
