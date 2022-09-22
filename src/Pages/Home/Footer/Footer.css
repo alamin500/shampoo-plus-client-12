@@ -55,4 +55,7 @@ body{
   .subscribe-image{
 display: none;
   }
+   .card-style{
+    height: 600px;
+  }
 }

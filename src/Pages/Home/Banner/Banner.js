@@ -8,9 +8,8 @@ const Banner = () => {
  return (
   <Box sx={{display:"flex", alignItems:"center", justifyContent:"center"}} className="banner-image">
           <div>
-        <h1>LOVE YOUR HAIR</h1>
+        <h1>EAT FRESH, STAY HEALTHY</h1>
         <p>TAKE ADVANTAGE OF THIS AMAZING EXCLUSIVE OFFER</p>
-       <p>GET THE LOOK WITH OUR PRODUCT</p>
        <Link to="/products" style={{ textDecoration: 'none' }}>
        <Button variant="outlined" size="large" color="error" sx={{ color: "white"}}>Buy Now</Button>
        </Link>

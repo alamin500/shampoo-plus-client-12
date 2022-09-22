@@ -54,7 +54,7 @@ export default function Navigation() {
         {user?.email ? (
           <Box>
             <NavLink
-              style={{ textDecoration: 'none', color: 'white' }}
+              style={{ textDecoration: 'none', color: 'red' }}
               to='/dashboard'
             >
               <Button
@@ -72,7 +72,7 @@ export default function Navigation() {
           </Box>
         ) : (
           <NavLink
-            style={{ textDecoration: 'none', color: 'white' }}
+            style={{ textDecoration: 'none', color: 'red' }}
             to='/login'
           >
             <Button color='inherit'>Login</Button>
@@ -100,7 +100,7 @@ export default function Navigation() {
   return (
     <>
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar sx={{ backgroundColor: '#9a0594' }} position='static'>
+        <AppBar sx={{ backgroundColor: 'transparent' }} position='static'>
           <Toolbar>
             <IconButton
               size='large'
@@ -119,31 +119,31 @@ export default function Navigation() {
               component='div'
               sx={{ flexGrow: 1, textAlign: 'left' }}
             >
-              <Link style={{ textDecoration: 'none', color: 'white' }} to='/'>
+              <Link style={{ textDecoration: 'none', color: 'red' }} to='/'>
                 Shampoo Plus
               </Link>
             </Typography>
             <Box sx={{ display: 'flex' }} className={navItemContainer}>
               <Link
                 to='/products'
-                style={{ textDecoration: 'none', color: 'white' }}
+                style={{ textDecoration: 'none', color: 'red' }}
               >
                 <Button color='inherit'>Products</Button>
               </Link>
               <Link className={navItem} to='/reviews'>
-                <Button color='inherit'>Reviews</Button>
+                <Button style={{ color: 'red' }}>Reviews</Button>
               </Link>
 
               {user?.email ? (
                 <Box>
                   <Link
                     to='/myOrders'
-                    style={{ textDecoration: 'none', color: 'white' }}
+                    style={{ textDecoration: 'none', color: 'red' }}
                   >
                     <Button color='inherit'>My Orders</Button>
                   </Link>
                   <NavLink
-                    style={{ textDecoration: 'none', color: 'white' }}
+                    style={{ textDecoration: 'none', color: 'red' }}
                     to='/dashboard'
                   >
                     <Button
@@ -155,16 +155,16 @@ export default function Navigation() {
                     </Button>
                   </NavLink>
                   <span>{user.displayName}</span>
-                  <Button onClick={logout} color='inherit'>
+                  <Button onClick={logout} style={{color: 'red' }}>
                     Logout
                   </Button>
                 </Box>
               ) : (
                 <NavLink
-                  style={{ textDecoration: 'none', color: 'white' }}
+                  style={{ textDecoration: 'none', color: 'red' }}
                   to='/login'
                 >
-                  <Button color='inherit'>Login</Button>
+                  <Button style={{color: 'red' }}>Login</Button>
                 </NavLink>
               )}
             </Box>

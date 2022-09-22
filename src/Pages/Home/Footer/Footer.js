@@ -116,9 +116,9 @@ const Footer = () => {
                   State/Province full, Illinois. Zip Code/Postal code, 60068.
                 </small>
               </p>
-              <Link className='footer-link'>trendytravel.net</Link>
+              <Link className='footer-link'>shampooplus.net</Link>
               <br />
-              <Link className='footer-link'>trendytravel@mail.com</Link>
+              <Link className='footer-link'>shampoo@mail.com</Link>
 
               <p className='mt-2'>
                 <small className='footer-menu'>
@@ -133,14 +133,14 @@ const Footer = () => {
               <br />
               <ul>
                 <Link className='footer-link'>
-                  <li className='footer-menu'>Booking Tours</li>
+                  <li className='footer-menu'>Johnsonville</li>
                 </Link>
                 <hr className='line' />
                 <li className='footer-menu'>Rental Hotels</li>
                 <hr className='line' />
                 <li className='footer-menu'>Hostel World</li>
                 <hr className='line' />
-                <li className='footer-menu'>Trivago New</li>
+                <li className='footer-menu'>Wanganui</li>
               </ul>
             </div>
           </Grid>
@@ -150,7 +150,7 @@ const Footer = () => {
                 <br />
                 <br />
                 <Link className='footer-link'>
-                  <li className='footer-menu'>Machu Picchu</li>
+                  <li className='footer-menu'>Paraparaumu</li>
                 </Link>
                 <hr className='line' />
                 <li className='footer-menu'> National Park</li>

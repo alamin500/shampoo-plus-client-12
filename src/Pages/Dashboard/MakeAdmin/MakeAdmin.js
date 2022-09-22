@@ -3,9 +3,7 @@ import React from 'react'
 import { useForm } from "react-hook-form";
 import useAuth from '../../../hooks/useAuth';
 const MakeAdmin = () => {
-
  const { register, handleSubmit} = useForm();
-
   const onSubmit = (data) => {
    alert("Admin made Successfully!!");
     fetch("https://thawing-eyrie-17375.herokuapp.com/makeAdmin", {

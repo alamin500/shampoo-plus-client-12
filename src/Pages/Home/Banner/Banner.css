@@ -1,6 +1,6 @@
 .banner-image {
-  background-image: url("https://i.ibb.co/LZgdYZ0/Cosmetic-bottles-mockup-shampoo-and-conditioner-beauty-cosmetics-product-for-hair-care-on-pink-backg.jpg");
-  height: 600px;
+  background-image: url("https://i.ibb.co/0nBWx41/bg.jpg");
+  height: 800px;
   width: 100%;
   background-blend-mode: overlay;
   background-repeat: no-repeat;
@@ -8,9 +8,45 @@
   background-position: center;
   color: white;
   padding: 30px;
+      margin-top: -65px;
 }
 .banner-image h1 {
   font-size: 70px;
   margin: 0;
+  	transform: translatey(0px);
+  animation: float 6s ease-in-out infinite;
 }
 
+@keyframes float {
+	0% {
+		transform: translatey(0px);
+	}
+	50% {
+		transform: translatey(-20px);
+	}
+	100% {
+		transform: translatey(0px);
+	}
+}
+
+@media (max-width: 767px) {
+  .banner-image h1 {
+  font-size: 20px;
+  margin-top: 80px;
+}
+  .banner-image p {
+  font-size: 14px;
+}
+.banner-image {
+  background-image: url("https://i.ibb.co/0nBWx41/bg.jpg");
+  height: 400px;
+  width: 100%;
+  background-blend-mode: overlay;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 30px;
+      margin-top: -65px;
+}
+}

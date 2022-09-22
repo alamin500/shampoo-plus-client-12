@@ -23,11 +23,9 @@ import AddReview from '../AddReview/AddReview';
 const drawerWidth = 200;
 function Dashboard(props) {
   const { user, logout, admin } = useAuth();
-const [role, setRole] = useState(false);
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   let { path, url } = useRouteMatch();
-  // const { admin } = useAuth();
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
