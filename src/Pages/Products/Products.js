@@ -16,7 +16,7 @@ const Products = (props) => {
     <Box sx={{ flexGrow: 1 }}>
       <Container>
         <Typography
-          sx={{ fontWeight: 500,fontSize: '32px', m: 2, color: 'success.main' }}
+          sx={{ fontWeight: 500,fontSize: '32px', m: 2, color: 'black' }}
           variant='h6'
           component='div'
         >

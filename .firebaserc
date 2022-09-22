@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "shampoo-plus-12"
-  }
+    "taza-ilish": "taza-ilish"
+  },
+  "targets": {},
+  "etags": {}
 }

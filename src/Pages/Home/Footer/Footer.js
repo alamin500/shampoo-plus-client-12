@@ -100,12 +100,12 @@ const Footer = () => {
             <div className='left-container text-start'>
               <br />
               <Typography
-                sx={{ color: '#d7165f' }}
+                sx={{ color: 'yellow' }}
                 variant='h4'
                 gutterBottom
                 component='div'
               >
-                SHAMPOO PLUS
+                TAZA ILISH
               </Typography>
 
               <p className=''>
@@ -166,7 +166,7 @@ const Footer = () => {
             <Box className='footer-menu-container'>
               <br />
               <Typography
-                sx={{ color: '#d7165f' }}
+                sx={{ color: 'yellow' }}
                 variant='h6'
                 gutterBottom
                 component='div'
@@ -193,7 +193,7 @@ const Footer = () => {
             <Box>
               <ul>
                 <Typography
-                  sx={{ color: '#d7165f', marginTop: '25px' }}
+                  sx={{ color: 'yellow', marginTop: '25px' }}
                   variant='h6'
                   gutterBottom
                   component='div'
